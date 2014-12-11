@@ -230,3 +230,28 @@ footer a:hover {
     -o-transition: 50ms linear;
     transition: 50ms linear;
 }
+#firstDeveloper{
+    margin-left: 21%;
+
+}
+.developers{
+    margin: 0.5%;
+}
+.developers img{
+    width: 130px;
+    height: 130px;
+    border-radius: 10px;
+    -webkit-filter: grayscale(100%);
+}
+.developers img:hover,#gitHub:hover{
+    -webkit-filter: grayscale(0%);
+    transition: 0.5s;
+}
+h2{
+    text-align: center;
+    margin-top: 10%;
+}
+#gitHub{
+    margin-left: 47%;
+    -webkit-filter: grayscale(100%);
+}

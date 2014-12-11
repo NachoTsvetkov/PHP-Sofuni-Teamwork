@@ -11,10 +11,10 @@
         <h1><a href="#">Logo</a></h1>
         <nav>
             <ul>
-                <li><a href="#" class="button">Home</a></li>
+                <li><a href="index.php" class="button">Home</a></li>
                 <li><a href="#" class="button">Gallery</a></li>
                 <li><a href="#" class="button">Other</a></li>
-                <li><a href="#" class="button">About</a></li>
+                <li><a href="about.php" class="button">About</a></li>
             </ul>
         </nav>
     </header>
