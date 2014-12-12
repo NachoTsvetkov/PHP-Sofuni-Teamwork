@@ -22,6 +22,6 @@
             </article>
         </section>
     </footer>
-    </div>
+
 </body>
 </html>

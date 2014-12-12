@@ -7,7 +7,7 @@
 </head>
 <body>
 <script src="script/script.js"></script>
-<div id="wrapper">
+
     <header>
         <h1><a href="index.php">Logo</a></h1>
         <nav>
@@ -19,3 +19,20 @@
             </ul>
         </nav>
     </header>
+<div id="wrapper">
+    <aside>
+        <section>
+            <article>
+                <header>
+                    <h2>Categoryyyy</h2>
+                </header>
+                <ul>
+                    <li><a href="#">Nakov</a></li>
+                    <li><a href="#">Petya</a></li>
+                    <li><a href="#">Pesho</a></li>
+                    <li><a href="#">Gosho</a></li>
+                    <li><a href="#">Alex</a></li>
+                </ul>
+            </article>
+        </section>
+    </aside>

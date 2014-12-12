@@ -21,7 +21,7 @@ body {
     margin: 0 auto;
 }
 
-main {
+div#wrapper {
     width: 960px;
     margin: 0 auto;
 }
@@ -30,9 +30,7 @@ a {
     text-decoration: none;
 }
 
-#wrapper>header {
-    width: 100%;
-}
+/*Header*/
 
 header>h1 {
     text-align: left;
@@ -53,7 +51,7 @@ header>nav>ul {
     text-align: center;
 }
 
-nav li {
+header nav li {
     display: inline-block;
     list-style-type: none;
 }
@@ -63,13 +61,48 @@ header nav ul li a {
 }
 
 header nav ul li{
-
     font-size: 20px;
     font-weight: bold;
     margin-right: 10px;
     margin-left: 10px;
     padding: 10px;
 }
+
+/*Header end*/
+
+
+/*Main*/
+main {
+    width: 70%;
+    display: inline-block;
+}
+
+/*Main end*/
+
+/*Aside*/
+
+aside {
+    width: 30%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+aside section article {
+    display: inline-block;
+    max-width: 100%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #254566;
+}
+
+aside ul li {
+    list-style-type: none;
+    padding-bottom: 5px;
+}
+
+/*Aside end*/
+
 
 section {
     margin-top: 20px;
@@ -112,7 +145,7 @@ article p.author {
     font-style: italic;
 }
 
-section article {
+main section article {
     display: inline-block;
     width: 200px;
     padding: 10px;
@@ -121,6 +154,15 @@ section article {
     box-shadow: 5px 5px 10px #254566;
 }
 /*Footer*/
+
+footer section article {
+    display: inline-block;
+    width: 200px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #254566;
+}
 
 footer a {
     font-size: 12px;
@@ -257,7 +299,7 @@ footer {
     -webkit-filter: grayscale(0%);
     transition: 0.5s;
 }
-h2{
+main h2{
     text-align: center;
     margin-top: 10%;
 }
