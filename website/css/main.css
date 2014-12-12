@@ -50,10 +50,7 @@ header>nav {
 }
 
 header>nav>ul {
-    text-align: right;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    margin-right: 5%;
+    text-align: center;
 }
 
 li {
@@ -163,27 +160,22 @@ footer a:hover {
 
 .button {
     display: inline-block;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing:border-box;
-    box-sizing:border-box;
-    min-width:100px;
-    padding: 22px 33px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    min-width: 100px;
+    padding: 18px 29px;
     font-family: 'Lobster', cursive;
-    font-size: 26px;
+    font-size: 20px;
     line-height: 26px;
     text-decoration: none;
     color: #FFF;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.75);
-    background: #5e0d0c;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.75);
+    background: #254566;
     outline: none;
     border-radius: 15px;
-    border: 1px solid #4c0300;
-    box-shadow:
-    inset 1px 1px 0px rgba(255,255,255,0.25), /* highlight */
-    inset 0 0 6px #a23227, /* inner glow */
-    inset 0 80px 80px -40px #ac3223, /* gradient */
-    1px 1px 3px rgba(0,0,0,0.75); /* shadow */
-
+    border: 1px solid #254566;
+    box-shadow: inset 1px 1px 0px rgba(255,255,255,0.25), /* highlight */ inset 0 0 6px #040415, /* inner glow */ inset 0 80px 80px -40px #3C5B7B, /* gradient */ 1px 1px 3px rgba(255, 255, 255, 0.75);
     position: relative;
     overflow: visible; /* IE9 & 10 */
     -webkit-transition: 500ms linear;
@@ -206,12 +198,12 @@ footer a:hover {
 
 }
 .button:hover {
-    background: #a61715;
+    background: #fd9b01;
     text-shadow: 0 1px 2px rgba(0,0,0,0.75), 0 0 40px #FFF;
     box-shadow:
     inset 1px 1px 0px rgba(255,255,255,0.25), /* highlight */
-    inset 0 0 6px #da3b2c, /* inner glow */
-    inset 0 80px 80px -40px #dd4330, /* gradient */
+    inset 0 0 6px #fd9b01, /* inner glow */
+    inset 0 80px 80px -40px #fd9b01, /* gradient */
     1px 1px 3px rgba(0,0,0,0.75); /* shadow */
 
 }
@@ -230,6 +222,7 @@ footer a:hover {
     -o-transition: 50ms linear;
     transition: 50ms linear;
 }
+
 #firstDeveloper{
     margin-left: 21%;
 
