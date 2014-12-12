@@ -6,9 +6,10 @@
     <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
+<script src="script/script.js"></script>
 <div id="wrapper">
     <header>
-        <h1><a href="#">Logo</a></h1>
+        <h1><a href="index.php">Logo</a></h1>
         <nav>
             <ul>
                 <li><a href="index.php" class="button">Home</a></li>
