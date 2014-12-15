@@ -1,0 +1,16 @@
+application: php-teamwork-softuni
+version: 1
+runtime: php
+api_version: 1
+threadsafe: true
+
+handlers:
+
+- url: .*/css/
+  static_dir: website/css
+
+- url: .*/img/
+  static_dir: website/img
+
+- url: /.*
+  script: website/index.php

@@ -1,9 +1,14 @@
 <?php
 //Include DAL classes;
-require_once "classes/album.php"; 
-require_once "classes/category.php"; 
-require_once "classes/image.php"; 
-require_once "classes/user.php"; 
 
-//Setup global variables;
-echo "Config Loaded!";
+include_once "classes/album.php"; 
+include_once "classes/category.php"; 
+include_once "classes/image.php";
+include_once "classes/user.php";
+include_once "classes/dbconnection.php";
+
+$db = new DbConnection();
+
+$sql = "SELECT * FROM users;";
+
+$result = mysqli_query($db->connection, $sql);
