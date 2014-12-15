@@ -1,5 +1,6 @@
 <?php
-    include 'header.php';
+    require_once '../server/config.php';
+    include_once 'pages/common/header.php';
 ?>
 <main>
     <section>
@@ -43,5 +44,5 @@
 </main>
 </div>
 <?php
-    include 'footer.php';
+    include_once '/pages/common/footer.php';
 ?>
