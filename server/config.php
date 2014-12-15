@@ -12,3 +12,5 @@ $db = new DbConnection();
 $sql = "SELECT * FROM users;";
 
 $result = mysqli_query($db->connection, $sql);
+
+echo "<br />Nacho Success Deploy!";
