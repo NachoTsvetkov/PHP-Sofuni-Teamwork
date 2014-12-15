@@ -1,0 +1,1 @@
+Here we set the different pages of the project. The index is separated.
