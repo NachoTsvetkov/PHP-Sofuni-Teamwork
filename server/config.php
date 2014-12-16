@@ -7,12 +7,6 @@ include_once "classes/image.php";
 include_once "classes/user.php";
 include_once "classes/dbconnection.php";
 
-//$host = "173.194.224.99:3306";
-$host = "/cloudsql/php-teamwork-softuni:storage";
+$isDevServer = true;
 
-$user = "root";
-$password = "softuni";
-$database = "photos_db";
-$table = "users";
-
-$db = new DbConnection($host, $user, $password, $database);
+$db = new DbConnection($isDevServer);

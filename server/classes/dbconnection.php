@@ -4,28 +4,33 @@ class DbConnection extends MySQLi
 {
 	public $host,$user,$password,$database,$connection;
 
-    public function __construct($host, $user, $password, $database)
+    public function __construct($isDevServer)
     {
-        $this -> host = $host;
-        $this -> user = $user;
-        $this -> password = $password;
-        $this -> database = $database;
-
-        $this -> connect_me();
+        $this -> connect_me($isDevServer);
     }
 
-    private function connect_me()
-    {
-        //$this -> connection = new mysqli(null, $this -> user, $this -> password,null , $this-> host);
-        
-        $this -> connection = new mysqli(
-              null,
-              'root', // username
-              '',     // password
-              'photos_db',
-              null,
-              '/cloudsql/php-teamwork-softuni:storage'
-        );
+    private function connect_me($isDevServer)
+    {   
+        var_dump($isDevServer);
+        if  ($isDevServer == true) {
+            $this -> connection = new mysqli(
+              '173.194.224.99:3306',
+              'root',
+              'softuni',
+              'photos_db'
+            );
+        } 
+        else 
+        {
+            $this -> connection = new mysqli(
+                  null,
+                  'root', // username
+                  '',     // password
+                  'photos_db',
+                  null,
+                  '/cloudsql/php-teamwork-softuni:storage'
+            );
+        }
         
         if( $this -> connect_error ){
         	// ERROR CLASS TO BE IMPLEMENTED!
