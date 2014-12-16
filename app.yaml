@@ -6,7 +6,7 @@ threadsafe: true
 
 handlers:
 
-- url: .*/css/
+- url: /css
   static_dir: website/css
 
 - url: .*/img/
