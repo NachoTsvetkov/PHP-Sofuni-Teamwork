@@ -26,8 +26,6 @@ class User
         return $result -> fetch_row();
     }
     
-    
-    
     public function get_user_list($db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
@@ -51,7 +49,7 @@ class User
         return $output;
     }
     
-    public function add_user($user_name, $user_password, $user_email, $user_image) {
+    public function add_user($user_name, $user_password, $user_email, $user_image, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -68,7 +66,7 @@ class User
         return $result;
     }
     
-    public function edit_user($user_name, $user_password, $user_password_new, $user_image, $user_email) {
+    public function edit_user($user_name, $user_password, $user_password_new, $user_image, $user_email, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -84,7 +82,7 @@ class User
         return $result;
     }
     
-    public function set_user_role($user_name, $user_password, $role) {
+    public function set_user_role($user_name, $user_password, $role, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -99,10 +97,8 @@ class User
         $result = mysqli_query($db -> connection, $query);
         return $result;
     }
-    
-    
-    
-    public function set_user_active($user_name, $user_password, $isActive) {
+        
+    public function set_user_active($user_name, $user_password, $isActive, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();

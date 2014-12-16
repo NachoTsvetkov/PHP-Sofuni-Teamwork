@@ -5,10 +5,20 @@ include_once "classes/image.php";
 include_once "classes/user.php";
 include_once "classes/dbconnection.php";
 
-$isDevServer = false;
+$isDevServer = true;
 
 $db = new DbConnection($isDevServer);
 
 $user = new User();
-//$user_result = $user -> get_user('Rumen', 'qkolud', $db);
-//$user_list_result = $user -> get_user_list($db);
+$image = new Image();
+
+//FETCH USER RESULTS
+// $user_result = $user -> get_user('Rumen', 'qkolud', $db);
+// $user_list_result = $user -> get_user_list($db);
+
+//FETCH IMAGE RESULTS
+// $image_result = $image -> get_image(1, $db);
+//IMAGE TAG CREATION;
+// echo '<img src="data:image/jpg;base64,'.base64_encode($image_result[0]).'" alt="photo"><br>';
+
+?>
