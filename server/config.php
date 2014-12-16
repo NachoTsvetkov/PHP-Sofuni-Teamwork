@@ -10,5 +10,5 @@ $isDevServer = true;
 $db = new DbConnection($isDevServer);
 
 $user = new User();
-$user_result = $user -> get_user('Rumen', 'qkolud', $db);
-$user_list_result = $user -> get_user_list($db);
+//$user_result = $user -> get_user('Rumen', 'qkolud', $db);
+//$user_list_result = $user -> get_user_list($db);

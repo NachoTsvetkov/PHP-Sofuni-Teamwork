@@ -41,7 +41,14 @@ class User
             ";
         
         $result = mysqli_query($db -> connection, $query);
-        return $result -> fetch_assoc();
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        
+        return $output;
     }
     
     public function add_user($user_name, $user_password, $user_email, $user_image) {
@@ -56,7 +63,9 @@ class User
         ";
         
         $result = mysqli_query($db -> connection, $query);
-        return $result -> fetch_assoc();
+        
+        
+        return $result;
     }
     
     public function edit_user($user_name, $user_password, $user_password_new, $user_image, $user_email) {
