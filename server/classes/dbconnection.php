@@ -16,7 +16,17 @@ class DbConnection extends MySQLi
 
     private function connect_me()
     {
-        $this -> connection = new mysqli(null, $this -> user, $this -> password,null , $this-> host);
+        //$this -> connection = new mysqli(null, $this -> user, $this -> password,null , $this-> host);
+        
+        $this -> connection = new mysqli(
+              null,
+              'root', // username
+              '',     // password
+              'photos_db',
+              null,
+              '/cloudsql/php-teamwork-softuni:storage'
+        );
+        
         if( $this -> connect_error ){
         	// ERROR CLASS TO BE IMPLEMENTED!
         	die($this -> connect_error);

@@ -16,16 +16,20 @@ class DbConnection extends MySQLi
 
     private function connect_me()
     {
-        $this -> connection = new mysqli(null, $this -> user, $this -> password,null , $this-> host);
+        $this -> connection = new mysqli(
+              null,
+              'root', // username
+              'softuni',     // password
+              'photos_db',
+              null,
+              '/cloudsql/php-teamwork-softuni:storage'
+        );
+        
         if( $this -> connect_error ){
         	// ERROR CLASS TO BE IMPLEMENTED!
+            echo "HERE";
         	die($this -> connect_error);
     	}else{
-    		if (!mysqli_select_db($this -> connection, "photos_db")) {
-    			echo "Unable to select users: " . mysqli_error();
-    			exit;
-    		}
-
     		$query = "SELECT user_name, user_password FROM users;";
     		$result = mysqli_query($this -> connection, $query);
 
