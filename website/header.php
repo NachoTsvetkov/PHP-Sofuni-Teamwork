@@ -60,8 +60,8 @@
                     <div class="modal-body">
                         <form role="form" method="post">
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <label for="username" class="control-label">Username</label>
+                                <input type="email" class="form-control" id="username" required>
                             </div>
                             <div class="form-group">
                                 <label for="recipient-name" class="control-label">Email</label>
