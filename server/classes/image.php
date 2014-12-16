@@ -4,7 +4,9 @@ class Image {
 
 	public $table_name = 'images';
 
-	public function __construct(){}
+	public function __construct()
+	{
+	}
 
 	public function get_image($image_id, $db) {
 		if (!mysqli_select_db($db -> connection, "photos_db")) {
@@ -67,7 +69,7 @@ class Image {
     	$query = "
 	    	UPDATE images
 	    	SET active = '$isActive'
-	    	WHERE (imageid = '$imageid');
+	    	WHERE imageid = '$imageid';
     	";
     	
     	$result = mysqli_query($db -> connection, $query);

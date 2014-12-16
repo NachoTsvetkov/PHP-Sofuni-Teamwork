@@ -3,7 +3,9 @@ class User
 {
     public $table_name = 'users';
     
-    public function __construct(){}
+    public function __construct()
+    {
+    }
     
     public function get_user($username, $password, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
@@ -42,6 +44,7 @@ class User
         while ($row = $result -> fetch_assoc()) {
             array_push($output, $row);
         }
+        
         
         return $output;
     }
