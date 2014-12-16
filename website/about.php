@@ -1,6 +1,6 @@
 <?php
 include '../server/config.php';
-include '/header.php';
+include 'header.php';
 ?>
 
 <main>

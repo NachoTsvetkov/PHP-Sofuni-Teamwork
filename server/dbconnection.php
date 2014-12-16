@@ -34,6 +34,8 @@ class DbConnection extends MySQLi
         if( $this -> connect_error ){
         	// ERROR CLASS TO BE IMPLEMENTED!
         	die($this -> connect_error);
+
+        echo "Connected to database!";
     	}
     }
 
