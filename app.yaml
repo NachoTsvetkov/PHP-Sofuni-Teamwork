@@ -6,11 +6,18 @@ threadsafe: true
 
 handlers:
 
-- url: /css
+- url: .*/css
   static_dir: website/css
 
 - url: .*/img/
   static_dir: website/img
+
+- url: .*/server/config.php
+  script: website/server/config.php
+  
+- url: .*/about
+  script: website/pages/about.php
+  
 
 - url: /.*
   script: website/index.php
