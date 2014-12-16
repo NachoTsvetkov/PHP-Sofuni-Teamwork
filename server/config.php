@@ -1,16 +1,18 @@
 <?php
 //Include DAL classes;
 
-include_once "classes/album.php"; 
-include_once "classes/category.php"; 
-include_once "classes/image.php";
-include_once "classes/user.php";
-include_once "classes/dbconnection.php";
+require_once "classes/album.php"; 
+require_once "classes/category.php"; 
+require_once "classes/image.php";
+require_once "classes/user.php";
+require_once "classes/dbconnection.php";
 
-$db = new DbConnection();
+// $host = "173.194.224.99:3306";
+$host = "/cloudsql/php-teamwork-softuni:storage";
 
-$sql = "SELECT * FROM users;";
+$user = "root";
+$password = "softuni";
+$database = "photos_db";
+$table = "users";
 
-$result = mysqli_query($db->connection, $sql);
-
-echo "<br />Nacho Success Deploy!";
+$db = new DbConnection($host, $user, $password, $database);
