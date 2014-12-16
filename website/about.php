@@ -1,5 +1,6 @@
 <?php
-include '/common/header.php';
+include '../server/config.php';
+include '/header.php';
 ?>
 
 <main>
@@ -12,5 +13,5 @@ include '/common/header.php';
 </main>
 
 <?php
-include '/common/footer.php';
+include '/footer.php';
 ?>

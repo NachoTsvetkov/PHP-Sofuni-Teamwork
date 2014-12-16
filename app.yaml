@@ -16,7 +16,7 @@ handlers:
 #  script: website/server/config.php
   
 - url: .*/about
-  script: website/pages/about.php
+  script: website/about.php
   
 
 - url: /.*

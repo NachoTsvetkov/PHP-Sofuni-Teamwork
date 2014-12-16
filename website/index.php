@@ -2,7 +2,7 @@
 <?php
 	require '../server/config.php';
 
-    require 'pages/common/header.php';
-    require 'pages/common/main.php';
-    require 'pages/common/footer.php';
+    require '/header.php';
+    require '/main.php';
+    require '/footer.php';
 ?>
