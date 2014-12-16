@@ -12,6 +12,9 @@ handlers:
 - url: .*/img/
   static_dir: website/img
 
+- url: .*/script
+  static_dir: website/script
+
 #- url: .*/server/config.php
 #  script: website/server/config.php
   
