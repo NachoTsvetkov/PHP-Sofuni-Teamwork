@@ -1,27 +1,19 @@
+    <footer class="navbar-default">
 
-    <footer>
-        <section>
-            <article>
-                <h2>Pages</h2>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Gallery</a></li>
-                        <li><a href="#">Other</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-            </article>
-            <article>Something</article>
-            <article>
-                <h2>About</h2>
-                <ul>
-                    <li><a href="#">Nacho Tsvetkov </a></li>
-                    <li><a href="http://stanimirstoyanov.com/">Stanimir Stoyanov</a></li>
-                    <li><a href="#">Rumen Tsonkov </a></li>
-                    <li><a href="#">Daniel Georgiev</a></li>
-                </ul>
-            </article>
-        </section>
+
+                <h3>Pages</h3>
+
+
+                    <p>Something</p>
+                    <p>Something</p>
+
     </footer>
-
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="script/bootstrap-lightbox.js"></script>
+    <script>
+        $('#demoLightbox').lightbox();
+    </script>
 </body>
 </html>

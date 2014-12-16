@@ -11,7 +11,7 @@ require_once "classes/dbconnection.php";
 $host = "/cloudsql/php-teamwork-softuni:storage";
 
 $user = "root";
-$password = "";
+$password = "softuni";
 $database = "photos_db";
 $table = "users";
 
