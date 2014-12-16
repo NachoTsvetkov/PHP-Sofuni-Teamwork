@@ -1,4 +1,7 @@
+
 <?php
+	require '../server/config.php';
+
     require 'pages/common/header.php';
 ?>
 
