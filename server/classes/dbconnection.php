@@ -16,12 +16,26 @@ class DbConnection extends MySQLi
 
     private function connect_me()
     {
-        $this -> connection = $this -> connect($this -> host, $this -> user, $this -> password, $this -> database);
-        if( $this -> connect_error )
-
+        $this -> connection = new mysqli(null, $this -> user, $this -> password, $this -> database,null , $this-> host);
+        if( $this -> connect_error ){
         	// ERROR CLASS TO BE IMPLEMENTED!
+        	die($this -> connect_error);
+    	}else{
+    		if (!mysqli_select_db($this -> connection, "photos_db")) {
+    			echo "Unable to select users: " . mysqli_error();
+    			exit;
+    		}
 
-        die($this -> connect_error);
+    		$query = "SELECT user_name, user_password FROM users;";
+    		$result = mysqli_query($this -> connection, $query);
+
+    		while ($row = $result -> fetch_row()) {
+    			echo "<br >";
+    			var_dump($row);
+    			echo "<br >";
+    		}
+    	}
+
     }
 
 }
