@@ -13,7 +13,23 @@
 <header class="navbar-default">
     <div class="cont">
         <h1><a href="index.php">Logo</a></h1>
-        <ul id="LoginRegister">
+        <?php $userType = 'anonymous';
+              $userName = 'Daniel';
+            if($userType== 'admin' || $userType == 'user'){
+                echo '<ul id="LoginRegister">
+            <li>
+                <p>Hello '.$userName.'</p>
+            </li>
+            <li>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" id="loginButton"
+                        data-whatever="@mdo">Logout
+                </button>
+            </li>
+
+            </ul>';
+            }
+            else{
+                echo '<ul id="LoginRegister">
             <li>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register"
                         id="registerButton" data-whatever="@mdo">Register
@@ -25,16 +41,13 @@
                 </button>
             </li>
 
-        </ul>
+            </ul>';
+            }
 
-        <!--        <nav>-->
-        <!--            <ul>-->
-        <!--                <li><a href="index.php" class="button">Home</a></li>-->
-        <!--                <li><a href="#" class="button">Gallery</a></li>-->
-        <!--                <li><a href="#" class="button">Other</a></li>-->
-        <!--                <li><a href="about.php" class="button">About</a></li>-->
-        <!--            </ul>-->
-        <!--        </nav>-->
+        ?>
+
+
+
         <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
             <div class="modal-dialog modal-sm">
