@@ -13,5 +13,5 @@ include 'header.php';
 </main>
 
 <?php
-include '/footer.php';
+include 'footer.php';
 ?>
