@@ -7,6 +7,7 @@ class DbConnection extends MySQLi
     public function __construct($isDevServer)
     {
         $this -> connect_me($isDevServer);
+        $this -> connection -> set_charset("utf8");
     }
 
     private function connect_me($isDevServer)
