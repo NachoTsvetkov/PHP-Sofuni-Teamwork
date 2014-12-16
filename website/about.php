@@ -2,11 +2,10 @@
 require 'header.php';
 
 ?>
-
+<?php  require 'aside.php';
+?>
 <main>
-    <?php
-     require 'aside.php'
-    ?>
+
     <div id="developersContainer">
     <h2>TEAM ATHENS</h2>
     <a  target="_blank" href="https://softuni.bg/users/profile/show/nachotsvetkov" id="firstDeveloper" class="developers"><img src="img/nacho.jpg"></a>

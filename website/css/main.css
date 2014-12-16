@@ -103,20 +103,27 @@ main {
 
 aside.categories {
     margin-top: 20px;
-    width: 13%;
     display: inline-table;
     float: left;
     background-color: #4e5d6c;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
+    width: 10%;
+    margin-left: 2%;
 
+}
+.categories h4{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 .categories ul{
     list-style: none;
-    margin-left: 5px;
 }
-.categories ul,h4{
-    margin-left: 5px;
+.categories a{
+    font-size: 16px;
+    font-weight: bold;
+
 }
 
 
@@ -129,7 +136,7 @@ section {
     text-align: center;
     display: inline-block;
     float: right;
-    width: 85%;
+    width: 100%;
 }
 
 main section.grid article {

@@ -1,7 +1,8 @@
+<?php  require 'aside.php';
+?>
 <main>
 
-    <?php  require 'aside.php';
-    ?>
+
     <section class="grid">
         <?php
         foreach ($pictures as $key=>$value) {
