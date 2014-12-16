@@ -18,7 +18,8 @@ $image = new Image();
 
 //FETCH IMAGE RESULTS
 // $image_result = $image -> get_image(1, $db);
+
 //IMAGE TAG CREATION;
-// echo '<img src="data:image/jpg;base64,'.base64_encode($image_result[0]).'" alt="photo"><br>';
+// echo '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($image_result[0]).'" alt="photo" width="500px"><br>';
 
 ?>
