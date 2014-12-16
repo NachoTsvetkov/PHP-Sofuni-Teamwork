@@ -11,7 +11,6 @@ class DbConnection extends MySQLi
 
     private function connect_me($isDevServer)
     {   
-        var_dump($isDevServer);
         if  ($isDevServer == true) {
             $this -> connection = new mysqli(
               '173.194.224.99:3306',
