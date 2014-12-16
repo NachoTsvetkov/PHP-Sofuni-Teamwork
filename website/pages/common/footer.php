@@ -4,7 +4,7 @@
                 <h3>Pages</h3>
 
 
-                    <p>Something</p>
+                    <p><a href="pages/about.php">About</a></p>
                     <p>Something</p>
 
     </footer>
