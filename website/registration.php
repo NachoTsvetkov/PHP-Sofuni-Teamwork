@@ -30,11 +30,7 @@ if (isset($_POST['registerSubmit'])) {
 	$user = new User();
 	$db = new DbConnection($_SESSION['isDev']);
 
-	var_dump($user -> check_user($_POST['email'], $db));
-
 	$check = $user -> check_user($_POST['email'], $db);
-
-	var_dump($check);
 
 	if ($user) {
 		$_SESSION['errorMsg'] = "User with that email already exists!";

@@ -29,11 +29,13 @@ if (isset($_POST['loginSubmit'])) {
 
     var_dump($result);
 
-    if (!$user) {
+    exit();
+
+    if (!$result) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
         header("Location: 'error.php'");
     }else{
-    
+    	echo 'REGISTERED';
     	header("Location: 'index.php'");
     }
 }

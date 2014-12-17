@@ -1,12 +1,23 @@
-<?php require 'header.php'; ?>
 
-<?php  require 'aside.php'; ?>
+<?php 
 
+require '../server/config.php';
+require 'header.php';
+require 'aside.php';
+
+?>
 <main>
 
-    <?php require 'login.php'; ?>
-    <?php require 'registration.php'; ?>
+	<?php 
+
+	require 'login.php';
+	require 'registration.php';
+
+	?>
 
 </main>
+<?php 
 
-<?php require 'footer.php'; ?>
+require 'footer.php'; 
+
+?>
