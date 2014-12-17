@@ -108,9 +108,9 @@ class Category
         }
 
         $query = "
-            SELECT image_id
-            FROM category_rel 
-            WHERE (active = 1) AND (category_id = '$category_id');
+            SELECT i.image_id
+            FROM images i INNER JOIN category_rel cr ON i.image_id = cr.image_id
+            WHERE (i.active = 1) AND (cr.active = 1) AND (cr.category_id = $category_id);
             ";
         
         $result = mysqli_query($db -> connection, $query);
@@ -194,6 +194,11 @@ class Category
         }
 
         $query = "
+        
+            SELECT i.image_id
+            FROM images i INNER JOIN cat_al_rel car ON i.image_id = car.image_id
+            WHERE (i.active = 1) AND (cr.active = 1) AND (cr.category_id = $category_id);
+            
             SELECT album_id
             FROM cat_al_rel 
             WHERE (active = 1) AND (category_id = '$category_id');
