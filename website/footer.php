@@ -10,6 +10,6 @@
     </footer>
     </div>
     <script src="script/jquery-1.11.0.min.js"></script>
-    <script src="script/lightbox.min.js"></script>
+    <script src="script/lightbox.js"></script>
 </body>
 </html>
