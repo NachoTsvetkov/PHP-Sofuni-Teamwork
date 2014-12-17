@@ -22,15 +22,11 @@ if (isset($_POST['submit'])) {
 
     $user->get_user($_POST['email'], $_POST['password'], $db);
 
-    exit();
-
     if (!$result) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
         header("Location: 'error.php'");
     }else{
     	echo 'REGISTERED';
     	header("Location: 'index.php'");
-    } else {
-        header("Location: 'index.php'");
-    }
+    } 
 }
