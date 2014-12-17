@@ -16,6 +16,10 @@
             <a href="index.php"><img src="img/logo.png" width="120" height="50"></a>
 
             <?php
+            
+            if (session_status() == PHP_SESSION_NONE) {
+                @session_start();
+            }
 
             if (!$_SESSION['user_name']) {
                 $_SESSION['user_name'] = 'anonymous';

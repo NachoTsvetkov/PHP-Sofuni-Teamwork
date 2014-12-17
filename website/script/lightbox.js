@@ -116,7 +116,20 @@
       });
 
       this.$lightbox.find('.lb-download').on('click', function (e) {
-        window.open(e.target.href);
+          //alert('here');
+          var url = e.target.href.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+          //window.open(url);
+
+          var downloadLink = document.createElement("a");
+          downloadLink.href = url;
+          downloadLink.download = "data.jpeg";
+
+          document.body.appendChild(downloadLink);
+          downloadLink.click();
+          document.body.removeChild(downloadLink);
+
+        //alert(url);
+        //window.open(e.target.href);
       });
     };
 
