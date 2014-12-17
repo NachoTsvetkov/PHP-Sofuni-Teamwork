@@ -5,7 +5,7 @@ class User
     
     public function __construct(){}
     
-    public function get_user($username, $password, $db) {
+    public function get_user($user_email, $user_password, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -14,8 +14,8 @@ class User
         $query = "
             SELECT user_id, user_name, user_password, user_role, user_image, user_email
             FROM users 
-            WHERE (user_name = '$username') 
-                AND (user_password = '$password')
+            WHERE (user_email = '$user_email') 
+                AND (user_password = '$user_password')
                 AND (active = '1');
             ";
         

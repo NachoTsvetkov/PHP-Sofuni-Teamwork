@@ -12,7 +12,7 @@ class Image {
 		}
 
 		$query = "
-			SELECT image_data, image_title, user_id, image_date, image_format, active
+			SELECT image_id, image_data, image_title, user_id, image_date, image_format, active
 			FROM images
 			WHERE (image_id = '$image_id')
 			AND (active = 1);
@@ -30,7 +30,7 @@ class Image {
 		}
 
 		$query = "
-			SELECT image_data, image_title, user_id, image_date, image_format, active
+			SELECT image_id, image_data, image_title, user_id, image_date, image_format, active
 			FROM images
 			WHERE (image_id = '$image_id')
 			AND (active = 1);

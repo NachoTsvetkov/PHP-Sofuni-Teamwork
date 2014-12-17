@@ -12,7 +12,7 @@ class Album {
         }
 
         $query = "
-            SELECT album_name, album_image, user_id
+            SELECT album_id, album_name, album_image, user_id
             FROM albums 
             WHERE (album_id = '$album_id') 
                 AND (active = '1');
@@ -95,6 +95,29 @@ class Album {
         $output = array();
         while ($row = $result -> fetch_assoc()) {
             array_push($output, $row);
+        }
+        
+        return $output;
+    }
+    
+    public function get_album_image_tags($album_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT iamge_id
+            FROM album_rel 
+            WHERE (active = 1) AND (category_id = '$category_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            $tag = '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row[0]).'" alt="photo" width="500px"><br>';
+            array_push($output, $tag);
         }
         
         return $output;
