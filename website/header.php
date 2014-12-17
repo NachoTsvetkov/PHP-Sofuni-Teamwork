@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-lightbox.css"/>
+    <link rel="stylesheet" href="css/lightbox.css"/>
     <link rel="stylesheet" href="css/theme.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     
@@ -15,13 +15,17 @@
             <h1><a href="index.php">Logo</a></h1>
 
             <?php 
-            var_dump($_SESSION);
+
             if (!$_SESSION['user_name']) {
                 $_SESSION['user_name'] = 'anonymous';
-                $_SESSION['user_role'] = 'anonymous';
+                $userType = 'anonymous';
+            }else{
+                $user_id = $_SESSION['id'];
+                $userName = $_SESSION['user_name'];
+                $userType = $_SESSION['user_role'];
             }
 
-            if($_SESSION['user_role'] == 'User' || $_SESSION['user_role'] == 'Admin'){
+            if($userType == 'User' || $userType == 'Admin'){
                 echo '<ul id="LoginRegister">
                 <li>
                     <p>Hello '.$userName.'</p>
