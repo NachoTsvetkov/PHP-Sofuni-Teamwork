@@ -24,7 +24,7 @@ class User
         return $result -> fetch_row();
     }
     
-    public function check_user($username, $db) {
+    public function check_user($user_email, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -33,7 +33,7 @@ class User
         $query = "
             SELECT user_id
             FROM users 
-            WHERE (user_name = '$username')
+            WHERE (user_email = '$user_email')
             ";
         
         $result = mysqli_query($db -> connection, $query);
