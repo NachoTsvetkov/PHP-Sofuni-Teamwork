@@ -107,7 +107,10 @@ main {
     margin: 0 auto;
     min-height: 80%;
 }
-
+.pictures{
+    width: 128px;
+    height: 128px;
+}
 /*Main end*/
 
 /*Aside*/
@@ -210,7 +213,10 @@ footer {
     height: 80px;
 
 }
-
+.fb-like{
+    float: right;
+    margin-top: -40px;
+}
 /*Footer end*/
 
 
@@ -263,6 +269,11 @@ figure{
 }
 input{
     cursor: pointer;
+}
+/* user page */
+#profilePic{
+    margin-left: 0;
+    margin-top: 5%;
 }
 
 
