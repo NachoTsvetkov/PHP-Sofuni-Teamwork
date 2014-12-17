@@ -10,134 +10,127 @@
     
 </head>
 <body>
-<header class="navbar-default">
-    <div class="cont">
-        <h1><a href="index.php">Logo</a></h1>
-        <?php 
-        if (!$_SESSION['user_name']) {
-            $_SESSION['user_name'] = 'anonymous';
-        }else{
-            $user_id = $_SESSION['id'];
-            $userName = $_SESSION['user_name'];
-            $userType = $_SESSION['user_role'];
-        }
+    <header class="navbar-default">
+        <div class="cont">
+            <h1><a href="index.php">Logo</a></h1>
 
-        if($userType != 'anonymous'){
-                echo '<ul id="UploadProfileLogout">
-            <li>
-                <p>Hello '.$userName.'</p>
-            </li>
-			<li>
-                <a href="add_img.php" class="btn btn-info">Upload</a>
-            </li>
-            <li>
-                <a href="user" class="btn btn-info">Profile</a>
-            </li>
-            <li>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logout" id="logoutButton"
-                        data-whatever="@mdo">Logout
-                </button>
-            </li>
-
-            </ul>';
+            <?php 
+            
+            if (!$_SESSION['user_name']) {
+                $_SESSION['user_name'] = 'anonymous';
+                $userType = 'anonymous';
+            }else{
+                $user_id = $_SESSION['id'];
+                $userName = $_SESSION['user_name'];
+                $userType = $_SESSION['user_role'];
             }
-            else{
+
+            if($userType == 'User' || $userType == 'Admin'){
                 echo '<ul id="LoginRegister">
-            <li>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register"
-                        id="registerButton" data-whatever="@mdo">Register
+                <li>
+                    <p>Hello '.$userName.'</p>
+                </li>
+                <li>
+                    <a href="add_img.php" class="btn btn-info">Upload</a>
+                </li>
+                <li>
+                    <a href="user" class="btn btn-info">Profile</a>
+                </li>
+                <li>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logout" id="logoutButton"
+                    data-whatever="@mdo">Logout
                 </button>
             </li>
-            <li>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" id="loginButton"
-                        data-whatever="@mdo">Login
-                </button>
-            </li>
 
-            </ul>';
-            }
+        </ul>';
+    }
+    else{
+        echo '<ul id="LoginRegister">
+        <li>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register"
+            id="registerButton" data-whatever="@mdo">Register
+        </button>
+    </li>
+    <li>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" id="loginButton"
+        data-whatever="@mdo">Login
+    </button>
+</li>
 
-        ?>
+</ul>';
+}
 
-        <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                                class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="register">Register</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form role="form" method="post">
-                            <div class="form-group">
-                                <label for="email" class="control-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="firstName" class="control-label">First Name</label>
-                                <input type="text" class="form-control" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="confirmPassword" class="control-label">Confirm Password</label>
-                                <input type="password" class="form-control" id="confirmPassword" required>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" value="Register" data-dismiss="modal"/>
-                    </div>
-                </div>
+?>
+
+<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="register">Register</h4>
             </div>
-        </div>
-        <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                                class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="login">Login</h4>
+            <form role="form" method="post" name="register">
+                 <div class="modal-body">
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
-                    <div class="modal-body">
-                        <form role="form" method="post">
-                            <div class="form-group">
-                                <label for="email" class="control-label">Email</label>
-                                <input type="text" class="form-control" id="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password" class="control-label">Password</label>
-                                <input type="password" class="form-control" id="password" required>
-                            </div>
-                        </form>
+                    <div class="form-group">
+                        <label for="firstName" class="control-label">First Name</label>
+                        <input type="text" class="form-control" id="firstName" name="firstName" required>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <input type="submit" class="btn btn-primary" value="Login" data-dismiss="modal"/>
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword" class="control-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
                     </div>
                 </div>
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input type="submit" class="btn btn-primary" value="Register" data-dismiss="modal"/>
+                <?= require 'register.php' ?>
             </div>
         </div>
     </div>
+</div>
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="login">Login</h4>
+            </div>
+            <form role="form" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="email" class="control-label">Email</label>
+                        <input type="text" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="control-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Login" data-dismiss="modal"/>
+                    <?= require 'login.php' ?>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 </header>
 
-<?php 
-
-if (isset($_POST['submit'])) {
-    $user = new User();
-    $db = new DbConnection($_SESSION['isDev']);
-
-    $user -> get_user($_POST['email'], $_POST['password'], $db);
-    if (!$user) {
-        header();
-    }
-}
-    
 ?>
-
 
