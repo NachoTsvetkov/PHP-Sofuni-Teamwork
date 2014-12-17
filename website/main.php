@@ -7,7 +7,7 @@
         <?php
         foreach ($pictures as $key=>$value) {
                 echo "<article>
-            <a href=\"img/random.jpg\" data-lightbox=\"image-1\" data-title=\"dadattata\"><img src=\"img/random.jpg \"></a>
+            <a href=\"img/picture.jpg\" data-lightbox=\"image-1\" data-title=\"dadattata\"><img src=\"img/picture.jpg\" class='pictures'></a>
         </article>";
             }
         ?>
