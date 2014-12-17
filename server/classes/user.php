@@ -21,7 +21,7 @@ class User
         
         $result = mysqli_query($db -> connection, $query);
         
-        return $result -> fetch_row();
+        return $result -> fetch_assoc();
     }
     
     public function get_user_row($user_id, $db) {

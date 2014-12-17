@@ -13,7 +13,8 @@ $user = new User();
 $image = new Image();
 
 //FETCH USER RESULTS
-// $user_result = $user -> get_user('Rumen', 'qkolud', $db);
+//$user_result = $user -> get_user('Rumen', 'qkolud', $db);
+//var_dump($user_result);
 // $user_list_result = $user -> get_user_list($db);
 
 //FETCH IMAGE RESULTS
