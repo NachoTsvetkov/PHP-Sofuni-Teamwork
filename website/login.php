@@ -18,16 +18,25 @@
 if (isset($_POST['loginSubmit'])) {
 
     $user = new User();
-    $db = new DbConnection(true);
+    $db = new DbConnection($_SESSION['isDev']);
 
     $result = $user -> get_user($_POST['loginEmail'], $_POST['loginPassword'], $db);
 
     if (session_status() == PHP_SESSION_NONE) {
         @session_start();
     }
-    
+
     if (!$result) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
+
+        echo "
+		<script type='text/javascript'>
+		window.location = '/error';
+
+		</script>
+		";
+
+
     } else{
     	$_SESSION['user_name'] = $result['user_name'];
       	$_SESSION['user_id'] = $result['user_id'];
@@ -35,10 +44,11 @@ if (isset($_POST['loginSubmit'])) {
 		$_SESSION['user_role'] = $result['user_role'];
 
         echo "
-        <script type='text/javascript'>
-            window.location.href = window.location.href + '/index';
-        </script>
-        ";
+		<script type='text/javascript'>
+			window.location.href = window.location.href + '/index';
+		</script>
+		";
+
     } 
     session_write_close();
 }
