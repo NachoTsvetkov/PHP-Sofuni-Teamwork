@@ -89,11 +89,13 @@ header h1 {
     display: inline-block;
     float: right;
     margin-right: 10%;
+    margin-top: 2%;
 }
 #login{
     display: inline-block;
     float: left;
     margin-left: 10%;
+    margin-top: 2%;
 }
 
 /*Header end*/
@@ -255,6 +257,12 @@ figure{
 #submitPic{
     margin: 0 auto;
     display: block;
+}
+.btn-file:hover{
+    cursor: default;
+}
+input{
+    cursor: pointer;
 }
 
 
