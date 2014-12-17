@@ -101,6 +101,29 @@ class Category
         return $output;
     }
     
+    public function get_category_image_tags($category_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT image_id
+            FROM category_rel 
+            WHERE (active = 1) AND (category_id = '$category_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            $tag = '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row[0]).'" alt="photo" width="500px"><br>';
+            array_push($output, $tag);
+        }
+        
+        return $output;
+    }
+    
     public function add_image_to_category($category_id, $image_id, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
@@ -159,6 +182,29 @@ class Category
         $output = array();
         while ($row = $result -> fetch_assoc()) {
             array_push($output, $row);
+        }
+        
+        return $output;
+    }
+    
+    public function get_category_album_tags($category_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT album_id
+            FROM cat_al_rel 
+            WHERE (active = 1) AND (category_id = '$category_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            $tag = '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row[0]).'" alt="photo" width="500px"><br>';
+            array_push($output, $tag);
         }
         
         return $output;
