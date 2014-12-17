@@ -126,7 +126,7 @@ class Category
         return $result;
     }
     
-    public function remove_image_to_category($category_id, $image_id, $db) {
+    public function remove_image_from_category($category_id, $image_id, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -142,35 +142,68 @@ class Category
         return $result;
     }
     
-    //public function edit_user($user_name, $user_password, $user_password_new, $user_image, $user_email, $db) {
-    //    if (!mysqli_select_db($db -> connection, "photos_db")) {
-    //        echo mysqli_error();
-    //        die();
-    //    }
+    public function get_category_albums($category_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
 
-    //    $query = "
-    //        UPDATE users
-    //        SET user_role = '$user_image', user_role = '$user_email', user_password = '$user_password_new'
-    //        WHERE user_name = '$user_name' AND user_password = '$user_password';
-    //    ";
+        $query = "
+            SELECT album_id
+            FROM cat_al_rel 
+            WHERE (active = 1) AND (category_id = '$category_id');
+            ";
         
-    //    $result = mysqli_query($db -> connection, $query);
-    //    return $result;
-    //}
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
     
-    //public function set_user_role($user_name, $user_password, $role, $db) {
-    //    if (!mysqli_select_db($db -> connection, "photos_db")) {
-    //        echo mysqli_error();
-    //        die();
-    //    }
+    public function add_album_to_category($category_id, $album_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
 
-    //    $query = "
-    //        UPDATE users
-    //        SET user_role = '$role'
-    //        WHERE user_name = '$user_name' AND user_password = '$user_password';
-    //    ";
+        $query = "
+            IF EXISTS (SELECT 1 FROM cat_al_rel WHERE category_id = '$category_id' AND album_id = '$album_id')
+            BEGIN
+                UPDATE cat_al_rel
+                SET active = 1
+                WHERE category_id = '$category_id' AND album_id = '$album_id';
+            END
+            ELSE
+                INSERT INTO cat_al_rel (category_id, album_id, active) 
+                VALUES('$category_id', '$album_id', 1);
+            END
+        ";
         
-    //    $result = mysqli_query($db -> connection, $query);
-    //    return $result;
-    //}
+        $result = mysqli_query($db -> connection, $query);
+        
+        
+        return $result;
+    }
+    
+    public function remove_album_from_category($category_id, $album_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            UPDATE category_rel
+            SET active = 0
+            WHERE category_id = '$category_id' AND album_id = '$album_id';
+        ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        return $result;
+    }
+    
+    
 }
