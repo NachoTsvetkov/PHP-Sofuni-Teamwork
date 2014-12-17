@@ -23,6 +23,10 @@ if (isset($_POST['loginSubmit'])) {
 
     $result = $user -> get_user($_POST['loginEmail'], $_POST['loginPassword'], $db);
 
+    if (session_status() == PHP_SESSION_NONE) {
+        @session_start();
+    }
+    
     if (!$result) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
     } else{
@@ -30,6 +34,12 @@ if (isset($_POST['loginSubmit'])) {
       	$_SESSION['user_id'] = $result['user_id'];
     	$_SESSION['user_image'] = $result['user_image'];
 		$_SESSION['user_role'] = $result['user_role'];
-		var_dump($_SESSION);
+        
+        echo "
+        <script type='text/javascript'>
+            window.location.href = window.location.href + '/index';
+        </script>
+        ";
     } 
+    session_write_close();
 }

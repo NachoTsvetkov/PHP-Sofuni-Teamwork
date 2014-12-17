@@ -13,17 +13,20 @@
     <header class="navbar-default">
         <div class="cont">
             <h1><a href="index.php">Logo</a></h1>
-
             <?php 
-
+            if (session_status() == PHP_SESSION_NONE) {
+                @session_start();
+            }
+            
             if (!$_SESSION['user_name']) {
                 $_SESSION['user_name'] = 'anonymous';
-                $userType = 'anonymous';
+                $_SESSION['user_type'] = 'anonymous';
             }else{
                 $user_id = $_SESSION['id'];
                 $userName = $_SESSION['user_name'];
                 $userType = $_SESSION['user_role'];
             }
+            session_write_close();
 
             if($userType == 'User' || $userType == 'Admin'){
                 echo '<ul id="LoginRegister">
@@ -37,7 +40,7 @@
                     <a href="user" class="btn btn-info">Profile</a>
                 </li>
                 <li>
-                     <a href="index" class="btn btn-info">Logout</a>
+                     <a href="logout" class="btn btn-info">Logout</a>
                 </li>
 
         </ul>';
