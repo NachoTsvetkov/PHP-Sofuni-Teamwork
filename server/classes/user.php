@@ -109,4 +109,48 @@ class User
         $result = mysqli_query($db -> connection, $query);
         return $result;
     }
+    
+    public function get_uesr_albums($user_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT album_id, album_name, album_image, user_id
+            FROM albums 
+            WHERE (active = 1) AND (user_id = '$user_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
+    
+    public function get_uesr_images($user_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT image_id, image_data, image_title, image_date, image_format
+            FROM images 
+            WHERE (active = 1) AND (user_id = '$user_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
 }

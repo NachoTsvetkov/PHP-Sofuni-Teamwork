@@ -204,6 +204,4 @@ class Category
         $result = mysqli_query($db -> connection, $query);
         return $result;
     }
-    
-    
 }
