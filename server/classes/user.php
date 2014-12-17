@@ -79,7 +79,7 @@ class User
         return $result;
     }
     
-    public function set_user_role($user_name, $user_password, $role, $db) {
+    public function set_user_role($user_id, $role, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -88,14 +88,14 @@ class User
         $query = "
             UPDATE users
             SET user_role = '$role'
-            WHERE user_name = '$user_name' AND user_password = '$user_password';
+            WHERE user_id = '$user_id';
         ";
         
         $result = mysqli_query($db -> connection, $query);
         return $result;
     }
         
-    public function set_user_active($user_name, $user_password, $isActive, $db) {
+    public function set_user_active($user_id, $isActive, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -104,7 +104,6 @@ class User
         $query = "
             UPDATE users
             SET active = '$isActive'
-            WHERE user_name = '$user_name' AND user_password = '$user_password';
         ";
         
         $result = mysqli_query($db -> connection, $query);
