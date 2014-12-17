@@ -78,5 +78,3 @@ class Album {
         return $result;
     }
 }
-
-echo "album.php Loaded!";

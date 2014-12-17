@@ -23,7 +23,7 @@
             '12'=>"img/picture12.jpg",
             '13'=>"img/picture13.jpg"];
         foreach ($categories as $key=>$value) {
-            echo "<li><a href='category.php/$key'>$value</a></li>";
+            echo "<li><a href='category.php?$key'>$value</a></li>";
         }
 
 
