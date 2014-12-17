@@ -1,5 +1,5 @@
-
 <?php 
+session_write_close();
 
 require '../server/config.php';
 require 'header.php';

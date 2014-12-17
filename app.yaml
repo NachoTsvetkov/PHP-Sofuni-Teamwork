@@ -29,5 +29,8 @@ handlers:
 - url: .*/about
   script: website/about.php
 
+- url: .*/logout
+  script: website/logout.php
+
 - url: /.*
   script: website/index.php
