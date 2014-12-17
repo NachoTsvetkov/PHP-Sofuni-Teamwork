@@ -82,7 +82,19 @@ header h1 {
 #LoginRegister li{
     display: inline-block;
 }
-
+/*Reg Page*/
+.form-control{
+}
+#register{
+    display: inline-block;
+    float: right;
+    margin-right: 10%;
+}
+#login{
+    display: inline-block;
+    float: left;
+    margin-left: 10%;
+}
 
 /*Header end*/
 
