@@ -1,6 +1,10 @@
-<?php  require 'header.php';
-       require 'aside.php';
+<?php  
+
+require 'header.php';
+require 'aside.php';
+
 ?>
+
 <main>
     <figure>
         <img src="img/random.jpg" width="300" height="300">
@@ -14,4 +18,8 @@
     </form>
 </main>
 
-<?php require 'footer.php'; ?>
+<?php 
+
+require 'footer.php'; 
+
+?>

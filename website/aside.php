@@ -1,3 +1,5 @@
+<?php require '../server/config.php'; ?>
+
 <aside class="categories">
     <h4>Categories</h4>
     <ul>

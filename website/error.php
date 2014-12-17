@@ -14,4 +14,6 @@ require 'aside.php';
 
 <?php  
 require 'footer.php';
+
+?>
          

@@ -31,8 +31,7 @@ if (isset($_POST['loginSubmit'])) {
 
         echo "
 		<script type='text/javascript'>
-		window.location = '/error';
-
+			window.location = '/error';
 		</script>
 		";
 
@@ -45,7 +44,7 @@ if (isset($_POST['loginSubmit'])) {
 
         echo "
 		<script type='text/javascript'>
-			window.location.href = window.location.href + '/index';
+			window.location = '/index';
 		</script>
 		";
 

@@ -1,4 +1,6 @@
-<?php  require 'header.php';
+<?php  
+require '../server/config.php';
+require 'header.php';
 require 'aside.php';
 ?>
 <main>
