@@ -13,10 +13,17 @@
 <header class="navbar-default">
     <div class="cont">
         <h1><a href="index.php">Logo</a></h1>
-        <?php $userType = 'da';
-              $userName = 'Daniel';
-            if($userType== 'admin' || $userType == 'user'){
-                echo '<ul id="LoginRegister">
+        <?php 
+        if (!$_SESSION['user_name']) {
+            $_SESSION['user_name'] = 'anonymous';
+        }else{
+            $user_id = $_SESSION['id'];
+            $userName = $_SESSION['user_name'];
+            $userType = $_SESSION['user_role'];
+        }
+
+        if($userType != 'anonymous'){
+                echo '<ul id="UploadProfileLogout">
             <li>
                 <p>Hello '.$userName.'</p>
             </li>
@@ -24,14 +31,9 @@
                 <a href="add_img.php" class="btn btn-info">Upload</a>
             </li>
             <li>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile" id="profileButton"
-                        data-whatever="@mdo">Profile
-                </button>
-
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload" id="uploadButton"
-                        data-whatever="@mdo">Upload
-                </button>
-
+                <a href="user" class="btn btn-info">Profile</a>
+            </li>
+            <li>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logout" id="logoutButton"
                         data-whatever="@mdo">Logout
                 </button>
@@ -57,11 +59,9 @@
 
         ?>
 
-
-
         <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
-            <div class="modal-dialog modal-sm">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
@@ -71,19 +71,19 @@
                     <div class="modal-body">
                         <form role="form" method="post">
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Email</label>
-                                <input type="email" class="form-control" id="email" required>
+                                <label for="email" class="control-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">First Name</label>
-                                <input type="email" class="form-control" id="firstName" required>
+                                <label for="firstName" class="control-label">First Name</label>
+                                <input type="text" class="form-control" id="firstName" name="firstName" required>
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="control-label">Password</label>
-                                <input type="password" class="form-control" id="password" required>
+                                <label for="password" class="control-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="control-label">Confirm Password</label>
+                                <label for="confirmPassword" class="control-label">Confirm Password</label>
                                 <input type="password" class="form-control" id="confirmPassword" required>
                             </div>
                         </form>
@@ -126,7 +126,16 @@
     </div>
 </header>
 
+<?php 
 
+if (isset($_POST['submit']){
+    $user = new User();
+    $db = new DbConnection();
 
+    $user -> get_user($_POST['email'], $_POST['password'], $db);
+
+}
+    
+?>
 
 

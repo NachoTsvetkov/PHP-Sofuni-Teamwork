@@ -18,9 +18,11 @@ handlers:
 #- url: .*/server/config.php
 #  script: website/server/config.php
   
+- url: .*/user
+  script: website/user.php
+
 - url: .*/about
   script: website/about.php
-  
 
 - url: /.*
   script: website/index.php
