@@ -1,32 +1,35 @@
-<form action="index" class="form-horizontal" role="form" method="post" id="login" xmlns="http://www.w3.org/1999/html">
+<form class="form-horizontal" role="form" method="post" id="login">
     <fieldset>
             <div class="form-group">
                 <label for="email" class="control-label">Email</label>
-                <input type="text" class="form-control" id="email" required>
+                <input type="text" class="form-control" id="email" name="loginEmail" required>
             </div>
             <div class="form-group">
                 <label for="password" class="control-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
+                <input type="password" class="form-control" id="password" name="loginPassword" required>
             </div>
-    <div class="form-group">
-            <input type="submit" name="loginSubmit" class="btn btn-primary" value="Login" data-dismiss="modal"/>
-    </div>
+    	<div class="form-group">
+            <input type="submit" name="loginSubmit" form="login" class="btn btn-primary" value="Login" data-dismiss="modal"/>
+    	</div>
    </fieldset>
 </form>
 
 <?php
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['loginSubmit'])) {
+
     $user = new User();
     $db = new DbConnection($_SESSION['isDev']);
 
-    $user->get_user($_POST['email'], $_POST['password'], $db);
+    $result = $user -> get_user($_POST['loginEmail'], $_POST['loginPassword'], $db);
 
     if (!$result) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
-        header("Location: 'error.php'");
-    }else{
-    	echo 'REGISTERED';
-    	header("Location: 'index.php'");
+    } else{
+    	$_SESSION['user_name'] = $result['user_name'];
+      	$_SESSION['user_id'] = $result['user_id'];
+    	$_SESSION['user_image'] = $result['user_image'];
+		$_SESSION['user_role'] = $result['user_role'];
+		var_dump($_SESSION);
     } 
 }

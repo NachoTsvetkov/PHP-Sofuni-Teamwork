@@ -15,17 +15,13 @@
             <h1><a href="index.php">Logo</a></h1>
 
             <?php 
-
+            var_dump($_SESSION);
             if (!$_SESSION['user_name']) {
                 $_SESSION['user_name'] = 'anonymous';
-                $userType = 'anonymous';
-            }else{
-                $user_id = $_SESSION['id'];
-                $userName = $_SESSION['user_name'];
-                $userType = $_SESSION['user_role'];
+                $_SESSION['user_role'] = 'anonymous';
             }
 
-            if($userType == 'User' || $userType == 'Admin'){
+            if($_SESSION['user_role'] == 'User' || $_SESSION['user_role'] == 'Admin'){
                 echo '<ul id="LoginRegister">
                 <li>
                     <p>Hello '.$userName.'</p>
