@@ -85,9 +85,9 @@ class Album {
         }
 
         $query = "
-            SELECT iamge_id
+            SELECT image_id
             FROM album_rel 
-            WHERE (active = 1) AND (category_id = '$category_id');
+            WHERE (active = 1) AND (album_id = '$album_id');
             ";
         
         $result = mysqli_query($db -> connection, $query);
@@ -107,9 +107,9 @@ class Album {
         }
 
         $query = "
-            SELECT iamge_id
-            FROM album_rel 
-            WHERE (active = 1) AND (category_id = '$category_id');
+            SELECT i.image_data
+            FROM images i INNER JOIN album_rel ar ON i.image_id = ar.image_id
+            WHERE (i.active = 1) AND (ar.active = 1) AND (ar.album_id = $album_id);
             ";
         
         $result = mysqli_query($db -> connection, $query);
