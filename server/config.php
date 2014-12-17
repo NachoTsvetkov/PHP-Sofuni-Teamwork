@@ -5,9 +5,9 @@ include_once "classes/image.php";
 include_once "classes/user.php";
 include_once "classes/dbconnection.php";
 
-$isDevServer = true;
+$_SESSION['isDev'] = true;
 
-$db = new DbConnection($isDevServer);
+$db = new DbConnection($_SESSION['isDev']);
 
 $user = new User();
 $image = new Image();
