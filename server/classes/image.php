@@ -48,22 +48,51 @@ class Image {
 		return $tag;
     }
 
-    public function get_list_image($length, $db) {			//FIGURE OUT IF LENGTH IS NEEDED
+    public function get_random_images($qty, $db) {
     	if (!mysqli_select_db($db -> connection, "photos_db")) {
     		echo mysqli_error();
     		die();
     	}
 
     	$query = "
-	    	SELECT image_id, image_data, image_title, user_id, image_date, image_format
-	    	FROM images;
-	    	WHERE (active = '1')
-	    	LIMIT $length;
+	    	SELECT image_id, image_data, image_title, user_id, image_date, image_format, active
+            FROM images
+            ORDER BY RAND()
+            LIMIT $qty
     	";
     	
     	$result = mysqli_query($db -> connection, $query);
     	
-    	return $result -> fetch_assoc();
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
+
+    public function get_random_image_tags($qty, $db) {
+    	if (!mysqli_select_db($db -> connection, "photos_db")) {
+    		echo mysqli_error();
+    		die();
+    	}
+
+    	$query = "
+	    	SELECT image_id, image_data, image_title, user_id, image_date, image_format, active
+            FROM images
+            ORDER BY RAND()
+            LIMIT $qty
+    	";
+    	
+    	$result = mysqli_query($db -> connection, $query);
+    	
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            $tag = '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row[0]).'" alt="photo" width="500px"><br>';
+            array_push($output, $tag);
+        }
+        
+        return $output;
     }
 
     public function add_image($image_data, $image_title, $user_id, $image_format, $db) {
