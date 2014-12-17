@@ -79,6 +79,69 @@ class Category
         return $result;
     }
     
+    public function get_category_images($category_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT iamge_id
+            FROM category_rel 
+            WHERE (active = 1) AND (category_id = '$category_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
+    
+    public function add_image_to_category($category_id, $image_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            IF EXISTS (SELECT 1 FROM category_rel WHERE category_id = '$category_id' AND image_id = '$image_id')
+            BEGIN
+                UPDATE category_rel
+                SET active = 1
+                WHERE category_id = '$category_id' AND image_id = '$image_id';
+            END
+            ELSE
+                INSERT INTO category_rel (category_id, image_id, active) 
+                VALUES('$category_id', '$image_id', 1);
+            END
+        ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        
+        return $result;
+    }
+    
+    public function remove_image_to_category($category_id, $image_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            UPDATE category_rel
+            SET active = 0
+            WHERE category_id = '$category_id' AND image_id = '$image_id';
+        ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        return $result;
+    }
+    
     //public function edit_user($user_name, $user_password, $user_password_new, $user_image, $user_email, $db) {
     //    if (!mysqli_select_db($db -> connection, "photos_db")) {
     //        echo mysqli_error();
