@@ -4,8 +4,6 @@
     require 'header.php';
     require 'aside.php';
 	        
-	
-
  	require 'footer.php'
 
  ?>
