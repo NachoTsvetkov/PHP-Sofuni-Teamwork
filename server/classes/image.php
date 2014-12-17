@@ -49,7 +49,7 @@ class Image {
     	}
 
     	$query = "
-	    	INSERT INTO images (image_data, image_title, user_id, $image_format)
+	    	INSERT INTO images (image_data, image_title, user_id, image_format)
 	    	VALUES('$image_data','$image_title','$user_id', '$image_format');
     	";
     	
