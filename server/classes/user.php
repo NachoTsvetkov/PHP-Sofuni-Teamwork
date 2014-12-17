@@ -24,6 +24,28 @@ class User
         return $result -> fetch_row();
     }
     
+    public function check_user($username, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT user_id
+            FROM users 
+            WHERE (user_name = '$username')
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = false;      
+        if($result -> fetch_row()) {
+            $output = true;
+        }
+        
+        return $output;
+    }
+    
     public function get_user_list($db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
@@ -141,6 +163,28 @@ class User
         $query = "
             SELECT image_id, image_data, image_title, image_date, image_format
             FROM images 
+            WHERE (active = 1) AND (user_id = '$user_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
+    
+    public function get_uesr_likes($user_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT likes_id, image_id
+            FROM likes 
             WHERE (active = 1) AND (user_id = '$user_id');
             ";
         

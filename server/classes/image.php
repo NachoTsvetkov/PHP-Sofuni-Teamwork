@@ -73,5 +73,27 @@ class Image {
     	$result = mysqli_query($db -> connection, $query);
     	return $result;
     }
+    
+    public function get_image_likes($image_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT likes_id, user_id
+            FROM likes 
+            WHERE (active = 1) AND (image_id = '$image_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
 }
 ?>
