@@ -24,6 +24,24 @@ class User
         return $result -> fetch_row();
     }
     
+    public function get_user_row($user_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT user_id, user_name, user_password, user_role, user_image, user_email
+            FROM users 
+            WHERE (user_id = '$user_id') 
+                AND (active = '1');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        return $result -> fetch_row();
+    }
+    
     public function check_user($user_email, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
