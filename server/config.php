@@ -12,7 +12,17 @@ if (session_status() == PHP_SESSION_NONE) {
 $_SESSION['isDev'] = true;
 session_write_close();
 
-// $db = new DbConnection($_SESSION['isDev']);
+$db = new DbConnection($_SESSION['isDev']);
+//$category = new Category();
+
+//$category -> add_category('sexy', $db);
+//$categories = $category -> get_categories_list($db);
+
+//foreach ($categories as $key => $value) {
+//    echo $value["category_name"] . "<br />";
+//}
+
+//var_dump($categories);
 
 // $user = new User();
 // $image = new Image();

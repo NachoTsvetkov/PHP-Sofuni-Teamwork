@@ -2,13 +2,10 @@
     <h4>Categories</h4>
     <ul>
         <?php
-        $categories = [
-            '1'=>"fun",
-            '2'=>"health",
-            '3'=>"others",
-            '4'=>"sample",
-            '5'=>"sample"
-        ];
+        $db = new DbConnection($_SESSION['isDev']);
+        $category = new Category();
+        $categories = $category ->  get_categories_list($db);
+        
         $pictures = ['1'=>"img/picture1.jpg",
             '2'=>"img/picture2.jpg",
             '3'=>"img/picture3.jpg",
@@ -22,8 +19,11 @@
             '11'=>"img/picture11.jpg",
             '12'=>"img/picture12.jpg",
             '13'=>"img/picture13.jpg"];
-        foreach ($categories as $key=>$value) {
-            echo "<li><a href='category.php?$key'>$value</a></li>";
+        
+        foreach ($categories as $key => $value) {
+            $category_id = $value['category_id'];
+            $category_name = $value['category_name'];
+            echo "<li><a href='category.php?$category_id'>$category_name</a></li>";
         }
 
         ?>
