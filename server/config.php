@@ -12,6 +12,10 @@ $db = new DbConnection($_SESSION['isDev']);
 $user = new User();
 $image = new Image();
 
+//echo $user -> check_user('neshto@gmail.com', $db);
+//echo $user -> add_user('Nacho', '123', 'nacho.tsvetkov@gmail.com', null, $db);
+//var_dump($user -> get_user('nacho.tsvetkov@gmail.com', '123', $db));
+
 //FETCH USER RESULTS
 //$user_result = $user -> get_user('Rumen', 'qkolud', $db);
 //var_dump($user_result);
