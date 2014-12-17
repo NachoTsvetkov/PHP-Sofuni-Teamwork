@@ -20,6 +20,9 @@
             <li>
                 <p>Hello '.$userName.'</p>
             </li>
+			<li>
+                <a href="add_img.php" class="btn btn-info">Upload</a>
+            </li>
             <li>
                 <button type="button" class="btn btn-primary" data-toggle="modal" id="logoutButton"
                         data-whatever="@mdo">Logout
