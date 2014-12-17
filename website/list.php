@@ -5,8 +5,10 @@ $image = new Image();
 $imageTags = $image -> get_random_image_tags(10, $db);
 
 foreach ($imageTags as $image) {
+    $img = $image[0];
+    $link = $image[1];
     echo "<article>
-            <a href='image' data-lightbox='image-1' data-title='dadattata'>$image</a>
+            <a href='$link' data-lightbox='image-1' data-title='dadattata'>$img</a>
         </article>";
 }
 ?>
