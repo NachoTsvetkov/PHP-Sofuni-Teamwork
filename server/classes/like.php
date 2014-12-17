@@ -34,7 +34,7 @@ class Like
         $query = "
             SELECT like_id, user_id, photo_id
             FROM likes
-            "
+            ";
         
         if ($user_id) {
             $query .= "
