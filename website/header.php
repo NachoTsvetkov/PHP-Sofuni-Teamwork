@@ -15,7 +15,6 @@
             <h1><a href="index.php">Logo</a></h1>
 
             <?php 
-
             if (!$_SESSION['user_name']) {
                 $_SESSION['user_name'] = 'anonymous';
                 $userType = 'anonymous';

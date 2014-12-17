@@ -15,7 +15,6 @@
 </form>
 
 <?php
-
 if (isset($_POST['loginSubmit'])) {
 
     $user = new User();
@@ -26,11 +25,9 @@ if (isset($_POST['loginSubmit'])) {
     if (!$result) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
     } else{
-
     	$_SESSION['user_name'] = $result['user_name'];
       	$_SESSION['user_id'] = $result['user_id'];
     	$_SESSION['user_image'] = $result['user_image'];
 		$_SESSION['user_role'] = $result['user_role'];
-		var_dump($_SESSION);
     } 
 }
