@@ -57,16 +57,3 @@
 
 ?>
 </header>
-
-
-
-<?php
-var_dump($_POST);
-if (isset($_POST['loginSubmit'])) {
-    var_dump($_POST);
-    include_once 'login.php';
-}
-if (isset($_POST['submit'])) {
-    var_dump($_POST);
-    include_once 'register.php';
-}

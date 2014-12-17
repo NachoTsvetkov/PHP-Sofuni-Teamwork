@@ -17,6 +17,10 @@
 			<input type="password" class="form-control" id="confirmPassword" required>
 		</div>
 	</div>
+	<div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <input type="submit" name="registerSubmit" class="btn btn-primary" value="Register" data-dismiss="modal"/>
+    </div>
 </form>
 
 <?php 
@@ -28,7 +32,6 @@ if (isset($_POST['submit'])) {
 
 	$user -> check_user($_POST['email'], $db);
 
-	var_dump($user);
 	if ($user) {
 		$_SESSION['errorMsg'] = "User with that email already exists!";
 		header("Location: 'error.php'");

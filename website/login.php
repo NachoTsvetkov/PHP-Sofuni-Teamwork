@@ -24,7 +24,6 @@ if (isset($_POST['submit'])) {
     $db = new DbConnection($_SESSION['isDev']);
 
     $user -> get_user($_POST['email'], $_POST['password'], $db);
-    var_dump($user);
 
     if (!$user) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
