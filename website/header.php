@@ -107,11 +107,11 @@
                     <div class="modal-body">
                         <form role="form" method="post">
                             <div class="form-group">
-                                <label for="recipient-name" class="control-label">Email</label>
+                                <label for="email" class="control-label">Email</label>
                                 <input type="text" class="form-control" id="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="message-text" class="control-label">Password</label>
+                                <label for="password" class="control-label">Password</label>
                                 <input type="password" class="form-control" id="password" required>
                             </div>
                         </form>
@@ -128,12 +128,14 @@
 
 <?php 
 
-if (isset($_POST['submit']){
+if (isset($_POST['submit'])) {
     $user = new User();
-    $db = new DbConnection();
+    $db = new DbConnection($_SESSION['isDev']);
 
     $user -> get_user($_POST['email'], $_POST['password'], $db);
-
+    if (!$user) {
+        header();
+    }
 }
     
 ?>
