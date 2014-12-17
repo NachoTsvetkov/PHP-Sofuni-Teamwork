@@ -39,7 +39,7 @@ class User
         
         $result = mysqli_query($db -> connection, $query);
         
-        return $result -> fetch_row();
+        return $result -> fetch_assoc();
     }
     
     public function check_user($user_email, $db) {
@@ -57,7 +57,7 @@ class User
         $result = mysqli_query($db -> connection, $query);
         
         $output = false;      
-        if($result -> fetch_row()) {
+        if($result -> fetch_assoc()) {
             $output = true;
         }
         

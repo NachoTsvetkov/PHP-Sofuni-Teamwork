@@ -20,7 +20,7 @@ class Album {
         
         $result = mysqli_query($db -> connection, $query);
         
-        return $result -> fetch_row();
+        return $result -> fetch_assoc();
     }
 
 	public function get_album_list($user_id, $db) {

@@ -20,7 +20,7 @@ class Image {
 		
 		$result = mysqli_query($db -> connection, $query);
 		
-		return $result -> fetch_row();
+		return $result -> fetch_assoc();
 	}
     
     public function get_image_tag($image_id, $db) {
@@ -38,7 +38,7 @@ class Image {
 		
 		$result = mysqli_query($db -> connection, $query);
         
-        $row = $result -> fetch_row();
+        $row = $result -> fetch_assoc();
         
         $tag = null;
         if ($row) {
@@ -63,7 +63,7 @@ class Image {
     	
     	$result = mysqli_query($db -> connection, $query);
     	
-    	return $result -> fetch_row();
+    	return $result -> fetch_assoc();
     }
 
     public function add_image($image_data, $image_title, $user_id, $image_format, $db) {
