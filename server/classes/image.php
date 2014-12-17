@@ -1,7 +1,6 @@
 <?php 
 
 class Image {
-
 	public $table_name = 'images';
 
 	public function __construct(){}
@@ -23,6 +22,31 @@ class Image {
 		
 		return $result -> fetch_row();
 	}
+    
+    public function get_image_tag($image_id, $db) {
+		if (!mysqli_select_db($db -> connection, "photos_db")) {
+			echo mysqli_error();
+			die();
+		}
+
+		$query = "
+			SELECT image_data, image_title, user_id, image_date, image_format, active
+			FROM images
+			WHERE (image_id = '$image_id')
+			AND (active = 1);
+		";
+		
+		$result = mysqli_query($db -> connection, $query);
+        
+        $row = $result -> fetch_row();
+        
+        $tag = null;
+        if ($row) {
+            $tag = '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row[0]).'" alt="photo" width="500px"><br>';
+        }
+		
+		return $tag;
+    }
 
     public function get_list_image($length, $db) {			//FIGURE OUT IF LENGTH IS NEEDED
     	if (!mysqli_select_db($db -> connection, "photos_db")) {
