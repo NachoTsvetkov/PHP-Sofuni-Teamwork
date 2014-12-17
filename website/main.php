@@ -1,16 +1,4 @@
-<?php  require 'aside.php';
+<?php  
+require 'aside.php';
+require 'list.php';
 ?>
-<main>
-
-
-    <section class="grid">
-        <?php
-        foreach ($pictures as $key=>$value) {
-                echo "<article>
-            <a href=\"img/random.jpg\" data-lightbox=\"image-1\" data-title=\"dadattata\"><img src=\"img/random.jpg \"></a>
-        </article>";
-            }
-        ?>
-
-    </section>
-</main>

@@ -12,10 +12,10 @@ if (session_status() == PHP_SESSION_NONE) {
 $_SESSION['isDev'] = true;
 session_write_close();
 
-$db = new DbConnection($_SESSION['isDev']);
+//$db = new DbConnection($_SESSION['isDev']);
 //$category = new Category();
 
-//$category -> add_category('sexy', $db);
+//$category -> add_category('best', $db);
 //$categories = $category -> get_categories_list($db);
 
 //foreach ($categories as $key => $value) {
