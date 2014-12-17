@@ -12,7 +12,7 @@ class Album {
         }
 
         $query = "
-            SELECT album_name, album_image, user_id
+            SELECT album_id, album_name, album_image, user_id
             FROM albums 
             WHERE (album_id = '$album_id') 
                 AND (active = '1');
