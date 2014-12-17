@@ -16,12 +16,16 @@
             <a href="index.php"><img src="img/logo.png" width="120" height="50"></a>
 
             <?php
+            
+            if (session_status() == PHP_SESSION_NONE) {
+                @session_start();
+            }
 
             if (!$_SESSION['user_name']) {
                 $_SESSION['user_name'] = 'anonymous';
                 $userType = 'anonymous';
-            }else{
-                $user_id = $_SESSION['id'];
+            } else {
+                $user_id = $_SESSION['user_id'];
                 $userName = $_SESSION['user_name'];
                 $userType = $_SESSION['user_role'];
             }

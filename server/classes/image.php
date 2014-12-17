@@ -89,9 +89,11 @@ class Image {
         $output = array();
         while ($row = $result -> fetch_assoc()) {
             $tag = [
-                '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row['image_data']).'" alt="photo" width="500px"><br>', 
-                'data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row['image_data'])
-                ];
+                '<img src="data:image/' . $row['image_format'] . ';base64,'.base64_encode($row['image_data']).'" alt="photo" width="500px"><br>', 
+                'data:image/' . $row['image_format'] . ';base64,'.base64_encode($row['image_data']),
+                'download'. $row['image_format'],
+                $row['image_title']
+            ];
             array_push($output, $tag);
         }
         
