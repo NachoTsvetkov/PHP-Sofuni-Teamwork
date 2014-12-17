@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-lightbox.css"/>
     <link rel="stylesheet" href="css/theme.css"/>
     <link rel="stylesheet" href="css/main.css"/>
-    <link rel="stylesheet" href="css/bootstrap-lightbox.css"/>
-
+    
 </head>
 <body>
 <header class="navbar-default">
     <div class="cont">
         <h1><a href="index.php">Logo</a></h1>
-        <?php $userType = 'anonymous';
+        <?php $userType = 'da';
               $userName = 'Daniel';
             if($userType== 'admin' || $userType == 'user'){
                 echo '<ul id="LoginRegister">
@@ -24,12 +24,16 @@
                 <a href="add_img.php" class="btn btn-info">Upload</a>
             </li>
             <li>
-                <button type="button" class="btn btn-primary" data-toggle="modal" id="logoutButton"
-                        data-whatever="@mdo">Logout
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profile" id="profileButton"
+                        data-whatever="@mdo">Profile
                 </button>
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload" id="loginButton"
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload" id="uploadButton"
                         data-whatever="@mdo">Upload
+                </button>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logout" id="logoutButton"
+                        data-whatever="@mdo">Logout
                 </button>
             </li>
 
@@ -52,6 +56,8 @@
             }
 
         ?>
+
+
 
         <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">
