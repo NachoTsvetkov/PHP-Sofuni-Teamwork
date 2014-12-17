@@ -24,8 +24,8 @@
             if (!$_SESSION['user_name']) {
                 $_SESSION['user_name'] = 'anonymous';
                 $userType = 'anonymous';
-            }else{
-                $user_id = $_SESSION['id'];
+            } else {
+                $user_id = $_SESSION['user_id'];
                 $userName = $_SESSION['user_name'];
                 $userType = $_SESSION['user_role'];
             }
