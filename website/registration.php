@@ -1,5 +1,5 @@
-<form role="form" method="post" name="register">
-	<div class="modal-body">
+<form role="form" method="post" name="register" id="register" class="form-horizontal">
+	<fieldset>
 		<div class="form-group">
 			<label for="email" class="control-label">Email</label>
 			<input type="email" class="form-control" id="email" name="email" required>
@@ -16,11 +16,10 @@
 			<label for="confirmPassword" class="control-label">Confirm Password</label>
 			<input type="password" class="form-control" id="confirmPassword" required>
 		</div>
-	</div>
-	<div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <div class="form-group">
         <input type="submit" name="registerSubmit" class="btn btn-primary" value="Register" data-dismiss="modal"/>
     </div>
+    </fieldset>
 </form>
 
 <?php 
