@@ -17,7 +17,9 @@ handlers:
 
 #- url: .*/server/config.php
 #  script: website/server/config.php
-  
+- url: .*/error
+  script: website/error.php
+
 - url: .*/regpage
   script: website/regpage.php
   

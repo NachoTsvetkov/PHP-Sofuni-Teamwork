@@ -19,16 +19,21 @@
 
 <?php 
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['loginSubmit'])) {
     $user = new User();
     $db = new DbConnection($_SESSION['isDev']);
 
-    $user -> get_user($_POST['email'], $_POST['password'], $db);
+    var_dump($db);
+
+    $result = $user -> get_user($_POST['email'], $_POST['password'], $db);
+
+    var_dump($result);
 
     if (!$user) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
         header("Location: 'error.php'");
     }else{
+    
     	header("Location: 'index.php'");
     }
 }
