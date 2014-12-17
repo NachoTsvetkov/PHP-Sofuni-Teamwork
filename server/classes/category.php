@@ -86,7 +86,7 @@ class Category
         }
 
         $query = "
-            SELECT iamge_id
+            SELECT image_id
             FROM category_rel 
             WHERE (active = 1) AND (category_id = '$category_id');
             ";

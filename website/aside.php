@@ -26,8 +26,6 @@
             echo "<li><a href='category.php?$key'>$value</a></li>";
         }
 
-
-
         ?>
 
     </ul>

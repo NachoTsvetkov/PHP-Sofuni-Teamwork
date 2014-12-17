@@ -21,8 +21,12 @@
                 <p>Hello '.$userName.'</p>
             </li>
             <li>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login" id="loginButton"
+                <button type="button" class="btn btn-primary" data-toggle="modal" id="logoutButton"
                         data-whatever="@mdo">Logout
+                </button>
+
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#upload" id="loginButton"
+                        data-whatever="@mdo">Upload
                 </button>
             </li>
 
@@ -45,8 +49,6 @@
             }
 
         ?>
-
-
 
         <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
              aria-hidden="true">

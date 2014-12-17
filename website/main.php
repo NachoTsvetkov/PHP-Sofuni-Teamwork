@@ -1,8 +1,6 @@
-<?php  require 'aside.php';
-?>
+<?php  require 'aside.php'; ?>
+
 <main>
-
-
     <section class="grid">
         <?php
         foreach ($pictures as $key=>$value) {
@@ -20,9 +18,6 @@
             }
 
         ?>
-
-
-
 
     </section>
 </main>

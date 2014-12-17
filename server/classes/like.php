@@ -32,7 +32,7 @@ class Like
         }
         
         $query = "
-            SELECT like_id, user_id, photo_id
+            SELECT like_id, user_id, image_id
             FROM likes
             ";
         
