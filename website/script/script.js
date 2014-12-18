@@ -19,9 +19,24 @@ loadComments = function (index) {
             for (var i = 0; i < array.length; i++) {
                 var comment = array[i];
 
-                var span = document.createElement("span");
-                span.innerHTML = comment.comment_content;
-                el.appendChild(span);
+                console.log(comment);
+
+                var p = document.createElement("p");
+
+                var span_content = document.createElement("span");
+                span_content.innerHTML = comment.comment_content;
+
+                var span_name = document.createElement("span");
+                span_name.innerHTML = comment.user_name;
+
+                var span_date = document.createElement("span");
+                span_date.innerHTML = comment.comment_date;
+
+                p.appendChild(span_content);
+                p.appendChild(span_name);
+                p.appendChild(span_date);
+
+                el.appendChild(p);
             }
         },
 
@@ -34,6 +49,7 @@ loadComments = function (index) {
 onCommentClick = function () {
     var id = links[imageIndex].firstChild.id.split(/\_/)[1];
     var content = document.getElementById('txtComment').value;
+    document.getElementById('txtComment').value = '';
 
     if (content != '') {
         console.log(content);
