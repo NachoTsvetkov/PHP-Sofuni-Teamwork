@@ -5,60 +5,72 @@ require 'aside.php';
 
 $db = new DbConnection($_SESSION['isDev']);
 $user = new User();
-$user  
-
+$result = $user -> get_user_row($_SESSION['user_id'], $db);
+var_dump($result);
 
 ?>
 <main>
     <script>
 
+    var static = document.getElementById('static');
+    var editable = document.getElementById('editable');
+
+    function setEditable(){
+        editable.style.display="inline-block";
+        static.style.display="none";
+    }
+
+    function setStatic(){
+        editable.style.display="none";
+        static.style.display="inline-block";
+    }
 
 
     </script>
 
-        <form action="">
+        <form onload="setStatic()" id="static" action="">
 
             <figure id="profilePic">
-                <a href="#"><img width="200" height="200" src="img/random.jpg"></a>
+                <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
             </figure>
 
             <label for="">Email:</label>
-            <input type="text" value="tupooooo@abv.bg" disabled/>
+            <label><?php echo $_SESSION['user_email']; ?></label>
 
             <label for="">Name:</label>
-            <input type="text" value="noname" disabled/>
+            <label><?php echo $_SESSION['user_name']; ?></label>
 
-            <label for="profilePic">Upload new profile picture</label>
-            <input id="profilePic" type="file" class="disabled"  disabled/>
-
-            <a href="#" class="btn btn-primary btn-xs" id="editButton">edit profile</a>
-            <input type="submit" disabled />
+            <a href="#" class="btn btn-primary btn-xs" id="editButton" onclick="setEditable()">Edit profile</a>
         </form>
 
-        <form action="">
+        <form id="editable" method="POST" action="<?php echo $_SERVER[PHP_SELF]; ?>">
 
             <figure id="profilePic">
-                <a href="#"><img width="200" height="200" src="img/random.jpg"></a>
+                <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
             </figure>
 
             <label for="">Email:</label>
-            <input type="text" value="<?= echo $_SESSION['user_email'] ?>" disabled/>
+            <input type="text" value="<?php echo $_SESSION['user_email']; ?>" />
 
             <label for="">Name:</label>
-            <input type="text" value="<?= echo $_SESSION['user_name'] ?>" disabled/>
+            <input type="text" value="<?php echo $_SESSION['user_name']; ?>" />
 
             <label for="profilePic">Upload new profile picture</label>
-            <input id="profilePic" type="file" class="disabled"  disabled/>
+            <input id="profilePic" type="file" />
 
-            <a href="#" class="btn btn-primary btn-xs" id="editButton">edit profile</a>
-            <input type="submit" disabled />
+            <a href="#" class="btn btn-primary btn-xs" id="editButton" onclick="setStatic()">Cancel</a>
+            <input type="submit" />
         </form>
 
     <div id="albums">
 
     </div>
 
-
 </main>
-<?php require 'footer.php';
+
+<?php
+
+var_dump($_POST);
+
+ require 'footer.php';
 ?>
