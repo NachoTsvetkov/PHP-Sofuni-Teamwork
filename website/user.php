@@ -23,7 +23,7 @@ $upload_url = CloudStorageTools::createUploadUrl('/upload_handler_user', $option
 ?>
 <main>
 
-        <form onload="setStatic()" id="static" action="">
+        <form id="static" action="">
 
             <figure id="profilePicStatic">
                 <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
@@ -39,7 +39,7 @@ $upload_url = CloudStorageTools::createUploadUrl('/upload_handler_user', $option
             </div>
              </form>
 
-       <form action="<?php echo $upload_url?>" enctype="multipart/form-data"  method="post" id="imgUpload">
+       <form id="editable" action="<?php echo $upload_url?>" enctype="multipart/form-data"  method="post" >
 
             <figure id="profilePicEditable">
                 <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
@@ -81,6 +81,8 @@ $upload_url = CloudStorageTools::createUploadUrl('/upload_handler_user', $option
             ed.style.display = "none";
             st.style.display = "inline-block";
         }
+        console.log(ed);
+        console.log(st);
 
         setStatic();
     </script>
