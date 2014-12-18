@@ -259,6 +259,10 @@ main h2{
     margin-top: 10%;
     margin-left: 10%;
 }
+input[type='file']
+{
+    background:#ffffff;
+}
 #imgUpload input{
     margin-bottom: 20px;
 }
