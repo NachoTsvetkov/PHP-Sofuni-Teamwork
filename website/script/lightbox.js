@@ -60,7 +60,7 @@
       var self = this;
       $("<div id='lightboxOverlay' class='lightboxOverlay'></div><div id='lightbox' class='lightbox'><div class='lb-outerContainer'><div class='lb-container'><img class='lb-image' src='' />" +
 
-          "<form id='commentBox'><input type='text' id='txtComment'/><button type='button' onclick='onCommentClick()'>Comment</button><div id='commentsConainer'></div></form>" +
+          "<form id='commentBox'><input type='text' id='txtComment'/><button type='button' id='commentButton' onclick='onCommentClick()'>Comment</button><div id='commentsConainer'></div></form>" +
 
           "<div class='lb-nav'><a class='lb-prev' href='' ></a><a class='lb-next' href='' ></a></div><div class='lb-loader'><a class='lb-cancel'></a></div><a class='lb-download' href='' target='_blank'></a></div></div><div class='lb-dataContainer'><div class='lb-data'><div class='lb-details'><span class='lb-caption'></span><span class='lb-number'></span></div><div class='lb-closeContainer'><a class='lb-close'></a></div></div></div></div>").appendTo($('body'));
 
