@@ -12,10 +12,10 @@ $result = $user -> get_user_row($_SESSION['user_id'], $db);
 
         <form onload="setStatic()" id="static" action="">
 
-            <figure id="profilePic">
+            <figure id="profilePicStatic">
                 <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
             </figure>
-
+            <div id="profileInfoStatic">
             <label for="">Email:</label>
             <label><?php echo $_SESSION['user_email']; ?></label>
 
@@ -23,14 +23,15 @@ $result = $user -> get_user_row($_SESSION['user_id'], $db);
             <label><?php echo $_SESSION['user_name']; ?></label>
 
             <a href="#" class="btn btn-primary btn-xs" id="editButton" onclick="setEditable()">Edit profile</a>
-        </form>
+            </div>
+             </form>
 
         <form id="editable" method="POST" action="<?php echo $_SERVER[PHP_SELF]; ?>">
 
-            <figure id="profilePic">
+            <figure id="profilePicEditable">
                 <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
             </figure>
-
+            <div id="profileInfoEditable">
             <label for="">Email:</label>
             <input type="text" value="<?php echo $_SESSION['user_email']; ?>" />
 
@@ -39,9 +40,11 @@ $result = $user -> get_user_row($_SESSION['user_id'], $db);
 
             <label for="profilePic">Upload new profile picture</label>
             <input id="profilePic" type="file" />
-
-            <a href="#" class="btn btn-primary btn-xs" id="editButton" onclick="setStatic()">Cancel</a>
+             <a href="#" class="btn btn-primary btn-xs" id="editButton" onclick="setStatic()">Cancel</a>
             <input type="submit" />
+             </div>
+
+            
         </form>
 
     <div id="albums">

@@ -274,10 +274,19 @@ input{
     cursor: pointer;
 }
 /* user page */
-#profilePic{
+#profilePicStatic{
     margin-left: 0;
     margin-top: 5%;
     display: inline-block;
+}
+#profilePicEditable{
+    position: relative;
+    display: inline-block;
+    top: -24px;
+}
+#profilePicEditable a img,#profilePicStatic a img{
+    width:200px;
+    height:200px;
 }
 input[type="text"]:disabled {
     background: #2b3e50;
@@ -288,11 +297,17 @@ input[type="submit"]:disabled,input[type="file"]:disabled{
     opacity: 0;
 }
 
-#userDetails{
+#profileInfoEditable{
+    
+position: relative;
+display: inline-block;
+top: -30px;
+}
+#profileInfoStatic{
     width: 25%;
     display: inline-block;
-    border: 1px solid black;
-
+    position: relative;
+    top: -45px;
 
 }
 
