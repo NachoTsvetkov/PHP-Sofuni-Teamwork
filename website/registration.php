@@ -1,5 +1,6 @@
 <form role="form" method="post" name="register" id="register" class="form-horizontal">
 	<fieldset>
+        <legend>Register</legend>
 		<div class="form-group">
 			<label for="email" class="control-label">Email</label>
 			<input type="email" class="form-control" id="email" name="email" required>

@@ -1,5 +1,6 @@
 <form class="form-horizontal" role="form" method="post" id="login">
     <fieldset>
+        <legend>Login</legend>
             <div class="form-group">
                 <label for="email" class="control-label">Email</label>
                 <input type="text" class="form-control" id="email" name="loginEmail" required>
@@ -31,9 +32,11 @@ if (isset($_POST['loginSubmit'])) {
 
         echo "
 		<script type='text/javascript'>
-			window.location = '/error';
+		window.location = '/error';
+
 		</script>
 		";
+
 
     } else{
     	$_SESSION['user_name'] = $result['user_name'];
@@ -43,7 +46,7 @@ if (isset($_POST['loginSubmit'])) {
 
         echo "
 		<script type='text/javascript'>
-			window.location = '/index';
+			window.location.href = window.location.href + '/index';
 		</script>
 		";
 
