@@ -155,8 +155,9 @@ section {
 }
 
 main section.grid article {
-    width: 130px;
     float: left;
+    max-width: 175px;
+    max-height: 124px;
     border: 1px solid lightgray;
     margin: 0 6px 10px 0;
     margin-top: 3px;
@@ -274,6 +275,28 @@ input{
 #profilePic{
     margin-left: 0;
     margin-top: 5%;
+    display: inline-block;
 }
+input[type="text"]:disabled {
+    background: #2b3e50;
+    color: #ffffff;
+    border: none;
+}
+input[type="submit"]:disabled,input[type="file"]:disabled{
+    opacity: 0;
+}
+
+#userDetails{
+    width: 25%;
+    display: inline-block;
+    border: 1px solid black;
+
+
+}
+
+#editButton{
+    float: right;
+}
+/* user page end */
 
 

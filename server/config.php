@@ -12,7 +12,14 @@ if (session_status() == PHP_SESSION_NONE) {
 $_SESSION['isDev'] = true;
 session_write_close();
 
-//$db = new DbConnection($_SESSION['isDev']);
+$db = new DbConnection($_SESSION['isDev']);
+$image = new Image();
+
+
+//$result = $image -> get_image_comments (3, $db);
+//$result = $image -> comment (2, 6, 'Ebasi mackata!', $db);
+//var_dump($result);
+
 //$category = new Category();
 
 //$category -> add_category('best', $db);
