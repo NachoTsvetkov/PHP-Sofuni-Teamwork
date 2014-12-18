@@ -16,7 +16,6 @@
             <a href="index.php"><img src="img/logo.png" width="120" height="50"></a>
 
             <?php
-            
             if (session_status() == PHP_SESSION_NONE) {
                 @session_start();
             }
@@ -42,7 +41,7 @@
                     <a href="user" class="btn btn-info">Profile</a>
                 </li>
                 <li>
-                     <a href="logout" class="btn btn-info">Logout</a>
+                     <a href="index" class="btn btn-primary">Logout</a>
                 </li>
 
         </ul>';
