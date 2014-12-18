@@ -255,22 +255,17 @@ main h2{
     margin-top: 2%;
 }
 /* Img Upload */
-figure{
+#imgUpload{
     margin-top: 10%;
-    margin-left: 20%;
-    display: inline-block;
-}
-#uploadPic{
-    display: inline-block;
     margin-left: 10%;
 }
-#submitPic{
+#imgUpload input{
+    margin-bottom: 20px;
+}
+#submitUpload{
     margin: 0 auto;
-    display: block;
 }
-.btn-file:hover{
-    cursor: default;
-}
+
 input{
     cursor: pointer;
 }
