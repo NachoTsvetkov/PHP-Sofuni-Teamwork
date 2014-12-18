@@ -31,7 +31,7 @@ if (isset($_POST['registerSubmit'])) {
 	$user = new User();
 	$db = new DbConnection($_SESSION['isDev']);
 
-	$check = $user -> check_user(mysqli_real_escape_string($db -> connection, $_POST['email']), $db);
+	$check = $user -> check_user(htmlspecialchars(mysqli_real_escape_string($db -> connection, $_POST['email'])), $db);
 
 	if ($check) {
 		$_SESSION['errorMsg'] = "User with that email already exists!";
@@ -41,9 +41,9 @@ if (isset($_POST['registerSubmit'])) {
 		</script>";
 
 	} else {
-		$user_name = mysqli_real_escape_string($db -> connection, $_POST['username']);
-		$user_email = mysqli_real_escape_string($db -> connection, $_POST['email']);
-		$user_password = mysqli_real_escape_string($db -> connection, $_POST['password']);
+		$user_name = htmlspecialchars(mysqli_real_escape_string($db -> connection, $_POST['username']));
+		$user_email = htmlspecialchars(mysqli_real_escape_string($db -> connection, $_POST['email']));
+		$user_password = htmlspecialchars(mysqli_real_escape_string($db -> connection, $_POST['password']));
 
 		$user -> add_user($user_name, $user_password, $user_email, null, $db);
 
