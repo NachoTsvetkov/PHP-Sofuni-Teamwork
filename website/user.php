@@ -6,7 +6,7 @@ require 'aside.php';
 $db = new DbConnection($_SESSION['isDev']);
 $user = new User();
 $result = $user -> get_user_row($_SESSION['user_id'], $db);
-
+//var_dump($result);
 ?>
 <main>
 
