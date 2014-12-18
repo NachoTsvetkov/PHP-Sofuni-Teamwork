@@ -48,7 +48,7 @@ class User
         
         $row['user_image_tag'] = $tag;
         
-        return $output;
+        return $row;
     }
     
     public function check_user($user_email, $db) {
