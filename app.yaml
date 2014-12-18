@@ -30,6 +30,9 @@ handlers:
 - url: .*/user
   script: website/user.php
 
+- url: .*/upload_handler_user
+  script: website/upload_handler_user.php
+
 - url: .*/about
   script: website/about.php
 

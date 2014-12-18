@@ -1,11 +1,16 @@
 <?php  
 
+if (session_status() == PHP_SESSION_NONE) {
+    @session_start();
+}
+
 require '../server/config.php';
 require 'header.php';
 require 'aside.php';
 
 $db = new DbConnection($_SESSION['isDev']);
 $user = new User();
+
 $result = $user -> get_user_row($_SESSION['user_id'], $db);
 
 require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
@@ -13,9 +18,8 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 
 $options = ['gs_bucket_name' => 'php-teamwork-softuni'];
 
-$upload_url = CloudStorageTools::createUploadUrl('/user', $options);
+$upload_url = CloudStorageTools::createUploadUrl('/upload_handler_user', $options);
 
-var_dump($upload_url);
 ?>
 <main>
 
@@ -62,10 +66,8 @@ var_dump($upload_url);
 
 </main>
 
-
     <script>
         var st, ed;
-
 
         st = document.getElementById('static');
         ed = document.getElementById('editable');
@@ -84,30 +86,6 @@ var_dump($upload_url);
     </script>
 
 <?php
-
-if (isset($_POST['submit'])) {
-    if ($_POST['user_name'] == null) {
-        $user_name = mysqli_real_escape_string($db -> connection, $result['user_name']);
-    }else{
-        $user_name = mysqli_real_escape_string($db -> connection, $_POST['user_name']);
-    }
-
-    if ($_POST['user_email'] == null) {
-        $user_email = mysqli_real_escape_string($db -> connection, $result['user_email']);
-    }else{
-        $user_email = mysqli_real_escape_string($db -> connection, $_POST['user_email']);
-    }
-
-    if ($_FILES['user_new_image'] != null) {
-        $image_data = mysql_escape_string(file_get_contents($_FILES['user_new_image']['tmp_name']));
-    }else{
-        $image_data = $result['image_data'];
-    }
-
-    $user -> edit_user($user_name, $image_data, $user_email, $db);
-    var_dump($result);
-}
-
 
  require 'footer.php';
 ?>
