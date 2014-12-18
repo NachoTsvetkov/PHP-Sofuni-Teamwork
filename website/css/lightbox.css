@@ -26,11 +26,21 @@ body:after {
 }
 #commentBox{
     margin-left: 800px;
-    margin-top: -450px;
+    margin-top: -470px;
+    background-color: #151b21;
+    height: 455px;
+    width: 300px;
+    padding-top:10px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+
 }
 #commentButton{
-    width: 50px;
-    height: 30px;
+    width: 60px;
+    height: 24px;
 }
 .lightbox .lb-image {
     display: block;
@@ -41,6 +51,7 @@ body:after {
     -ms-border-radius: 3px;
     -o-border-radius: 3px;
     border-radius: 3px;
+
 }
 
 .lightbox a img {
