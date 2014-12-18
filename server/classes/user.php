@@ -112,7 +112,7 @@ class User
         return $result;
     }
     
-    public function edit_user($user_name, $user_password, $user_password_new, $user_image, $user_email, $db) {
+    public function edit_user($user_name, $user_image, $user_email, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
             die();
@@ -120,7 +120,7 @@ class User
 
         $query = "
             UPDATE users
-            SET user_role = '$user_image', user_role = '$user_email', user_password = '$user_password_new'
+            SET user_image = '$user_image', user_name = '$user_name', user_email = '$user_email'
             WHERE user_name = '$user_name' AND user_password = '$user_password';
         ";
         
