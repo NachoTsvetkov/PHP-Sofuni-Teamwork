@@ -31,6 +31,9 @@ handlers:
 
 - url: .*/logout
   script: website/logout.php
+  
+- url: .*/get_comments
+  script: website/get_comments.php
 
 - url: /.*
   script: website/index.php

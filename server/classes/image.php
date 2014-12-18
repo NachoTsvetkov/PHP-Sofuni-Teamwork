@@ -177,5 +177,58 @@ class Image {
         
         return $result;
     }
+    
+    public function get_image_comments($image_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            SELECT u.user_name, c.comment_content, c.comment_date
+            FROM comments c INNER JOIN users u ON c.user_id = u.user_id
+            WHERE (c.active = 1) AND (image_id = '$image_id');
+            ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        $output = array();
+        while ($row = $result -> fetch_assoc()) {
+            array_push($output, $row);
+        }
+        
+        return $output;
+    }
+    
+    public function comment ($image_id, $user_id, $comment_content, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+                SELECT comment_id
+                FROM comments
+                WHERE image_id = '$image_id' AND user_id = '$user_id';
+        ";
+        $result = mysqli_query($db -> connection, $query);
+        
+        if (!$result -> fetch_row()) {
+            $query = "
+                INSERT INTO comments (image_id, user_id, comment_content, active) 
+                VALUES('$image_id', '$user_id', '$comment_content', 1);
+            ";
+            $result = mysqli_query($db -> connection, $query);    
+        } else {
+            $query = "
+                UPDATE comments
+                SET active = 1
+                WHERE image_id = '$image_id' AND user_id = '$user_id';
+            ";
+            $result = mysqli_query($db -> connection, $query);
+        }
+        
+        return $result;
+    }
 }
 ?>
