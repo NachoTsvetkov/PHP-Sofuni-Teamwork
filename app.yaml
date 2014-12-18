@@ -38,5 +38,8 @@ handlers:
 - url: .*/get_comments
   script: website/get_comments.php
 
+- url: .*/set_comment
+  script: website/set_comment.php
+
 - url: /.*
   script: website/index.php

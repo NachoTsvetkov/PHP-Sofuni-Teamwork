@@ -1,4 +1,4 @@
-var links;
+var links, imageIndex;
 
 loadComments = function (index) {
     var id = links[index].firstChild.id.split(/\_/)[1];
@@ -13,7 +13,7 @@ loadComments = function (index) {
                 return [value];
             });
 
-            var el = document.getElementById('commentsConainer')
+            var el = document.getElementById('commentsConainer');
             el.innerHTML = '';
 
             for (var i = 0; i < array.length; i++) {
@@ -32,5 +32,35 @@ loadComments = function (index) {
 };
 
 onCommentClick = function () {
-    alert('Comment Clicked');
+    var id = links[imageNumber].firstChild.id.split(/\_/)[1];
+    var content = document.getElementById('txtComment').innerHTML;
+
+    $.ajax({
+        url: "set_comment",
+        type: "POST",
+        data: { id: id, content: content },
+        dataType: "json",
+        success: function (data) {
+            var array = $.map(data, function (value, index) {
+                return [value];
+            });
+
+            var el = document.getElementById('commentsConainer');
+            el.innerHTML = '';
+
+            for (var i = 0; i < array.length; i++) {
+                var comment = array[i];
+
+                var span = document.createElement("span");
+                span.innerHTML = comment.comment_content;
+                el.appendChild(span);
+            }
+        },
+
+        error: function (data) {
+            console.log(data);
+        }
+    });
+
+    loadComments();
 }

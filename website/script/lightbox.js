@@ -204,7 +204,8 @@
 
     // Hide most UI elements in preparation for the animated resizing of the lightbox.
     Lightbox.prototype.changeImage = function (imageNumber) {
-      loadComments(imageNumber);
+        loadComments(imageNumber);
+        imageIndex = imageNumber
 
       var self = this;
 
