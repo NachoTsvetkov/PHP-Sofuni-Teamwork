@@ -39,7 +39,16 @@ class User
         
         $result = mysqli_query($db -> connection, $query);
         
-        return $result -> fetch_assoc();
+        $row = $result -> fetch_assoc();
+        $tag = [
+                '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row['user_image']).'" alt="photo" width="500px" id="usr_' . $row['user_id'] . '">', 
+                'data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row['user_image']),
+                $row['user_name']
+        ];
+        
+        $row['user_image_tag'] = $tag;
+        
+        return $output;
     }
     
     public function check_user($user_email, $db) {
