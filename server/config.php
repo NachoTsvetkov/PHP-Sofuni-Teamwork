@@ -9,7 +9,7 @@ if (session_status() == PHP_SESSION_NONE) {
     @session_start();
 }
 
-$_SESSION['isDev'] = false;
+$_SESSION['isDev'] = true;
 session_write_close();
 
 // $db = new DbConnection($_SESSION['isDev']);

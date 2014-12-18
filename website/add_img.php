@@ -14,8 +14,8 @@ $upload_url = CloudStorageTools::createUploadUrl('/upload_handler', $options);
 ?>
 
 <form action="<?php echo $upload_url?>" enctype="multipart/form-data" method="post">
-    Files to upload: <br>
-   <input type="file" name="uploaded_files" size="40">
+   <label for="impFile">Image to upload:</label><input type="file" id="impFile" name="image_data" size="40"><br />
+   <label for="txtImgTitle">Image Title:</label><input type="text" id="txtImgTitle" name="image_title" size="40">
    <input type="submit" value="Send">
 </form>
 
