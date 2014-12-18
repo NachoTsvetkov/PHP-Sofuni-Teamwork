@@ -28,8 +28,8 @@ body:after {
     padding: 3px;
 }
 #commentBox{
-    margin-left: 800px;
-    margin-top: -470px;
+    margin-left: 101%;
+    margin-top: -510px;
     background-color: #151b21;
     height: 455px;
     width: 300px;
