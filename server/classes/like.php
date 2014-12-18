@@ -58,6 +58,7 @@ class Like
         return $output;
     }
     
+    //DEPRICATED
     public function set_like($image_id, $user_id, $db) {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();
@@ -82,6 +83,7 @@ class Like
         return $result;
     }
     
+    //TO BE USED
     public function unset_like($image_id, $user_id, $db)  {
         if (!mysqli_select_db($db -> connection, "photos_db")) {
             echo mysqli_error();

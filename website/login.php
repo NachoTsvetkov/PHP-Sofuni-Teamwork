@@ -44,7 +44,6 @@ if (isset($_POST['loginSubmit'])) {
         echo "<script type='text/javascript'>
 			window.location = '/index';
 		</script>";
-
     } 
     session_write_close();
 }
