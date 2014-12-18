@@ -9,7 +9,6 @@ use google\appengine\api\cloud_storage\CloudStorageTools;
 
 $options = [ 'gs_bucket_name' => 'php-teamwork-softuni' ];
 $upload_url = CloudStorageTools::createUploadUrl('/upload_handler', $options);
-var_dump($upload_url);
 
 ?>
 
