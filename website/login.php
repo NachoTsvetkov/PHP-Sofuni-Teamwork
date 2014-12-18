@@ -35,7 +35,6 @@ if (isset($_POST['loginSubmit'])) {
 		</script>
 		";
 
-
     } else{
     	$_SESSION['user_name'] = $result['user_name'];
       	$_SESSION['user_id'] = $result['user_id'];

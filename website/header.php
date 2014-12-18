@@ -42,7 +42,7 @@
                     <a href="user" class="btn btn-info">Profile</a>
                 </li>
                 <li>
-                     <a href="index" class="btn btn-info">Logout</a>
+                     <a href="logout" class="btn btn-info">Logout</a>
                 </li>
 
         </ul>';

@@ -1,5 +1,13 @@
 <?php
-session_start();
-session_unset();
-header('Location: index');
+if (session_status() == PHP_SESSION_NONE) {
+        @session_start();
+    }
+session_destroy();
+
+echo "
+	<script type='text/javascript'>
+		window.location = '/index';
+	</script>
+	";
+
 ?>

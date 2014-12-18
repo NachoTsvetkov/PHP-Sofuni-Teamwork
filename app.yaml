@@ -22,7 +22,10 @@ handlers:
 
 - url: .*/regpage
   script: website/regpage.php
-  
+
+- url: .*/add_img
+  script: website/add_img.php
+
 - url: .*/user
   script: website/user.php
 

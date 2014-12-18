@@ -1,25 +1,20 @@
 <?php  
 
+require '../server/config.php';
 require 'header.php';
 require 'aside.php';
 
 ?>
 
 <main>
-    <figure>
-        <img src="img/random.jpg" width="300" height="300">
-    </figure>
-    <form action="" method="get" id="uploadPic">
-        <span id="fileUpload" class="btn btn-default btn-file">
-            Browse <input type="file" class="inputFile">
-        </span>
-
-        <input type="submit" id="submitPic" class="btn btn-info"/>
+     <form action="add_img" method="POST" enctype="multipart/form-data">
+     	File:
+    	<input type="file" name ="image"/><input type="submit" value="Upload"/>
     </form>
-</main>
+ </main>
 
-<?php 
+<?php
 
-require 'footer.php'; 
 
 ?>
+
