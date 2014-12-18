@@ -88,14 +88,17 @@ header h1 {
 #register{
     display: inline-block;
     float: right;
-    margin-right: 10%;
+    margin-right: 20%;
     margin-top: 2%;
 }
 #login{
     display: inline-block;
-    float: left;
-    margin-left: 10%;
+    /*float: left;*/
+    margin-left: 20%;
     margin-top: 2%;
+}
+legend{
+    text-align: center;
 }
 
 /*Header end*/
