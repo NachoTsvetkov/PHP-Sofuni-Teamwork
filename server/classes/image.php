@@ -205,28 +205,12 @@ class Image {
             echo mysqli_error();
             die();
         }
-
-        $query = "
-                SELECT comment_id
-                FROM comments
-                WHERE image_id = '$image_id' AND user_id = '$user_id';
-        ";
-        $result = mysqli_query($db -> connection, $query);
         
-        if (!$result -> fetch_row()) {
-            $query = "
-                INSERT INTO comments (image_id, user_id, comment_content, active) 
-                VALUES('$image_id', '$user_id', '$comment_content', 1);
-            ";
-            $result = mysqli_query($db -> connection, $query);    
-        } else {
-            $query = "
-                UPDATE comments
-                SET active = 1
-                WHERE image_id = '$image_id' AND user_id = '$user_id';
-            ";
-            $result = mysqli_query($db -> connection, $query);
-        }
+        $query = "
+            INSERT INTO comments (image_id, user_id, comment_content, active) 
+            VALUES('$image_id', '$user_id', '$comment_content', 1);
+        ";
+        $result = mysqli_query($db -> connection, $query);    
         
         return $result;
     }
