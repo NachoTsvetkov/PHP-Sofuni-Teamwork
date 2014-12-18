@@ -39,6 +39,7 @@ if (isset($_POST['loginSubmit'])) {
       	$_SESSION['user_id'] = $result['user_id'];
     	$_SESSION['user_image'] = $result['user_image'];
 		$_SESSION['user_role'] = $result['user_role'];
+		$_SESSION['user_email'] = $result['user_email'];
 
         echo "<script type='text/javascript'>
 			window.location = '/index';

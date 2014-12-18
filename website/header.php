@@ -14,7 +14,7 @@
 <div id="fb-root"></div>
     <header class="navbar-default">
         <div class="cont">
-            <a href="index.php"><img src="img/logotitle.png" width="120" height="50"></a>
+            <a href="index.php"><img src="/img/logo.png" width="120" height="50"></a>
 
             <?php
             if (session_status() == PHP_SESSION_NONE) {

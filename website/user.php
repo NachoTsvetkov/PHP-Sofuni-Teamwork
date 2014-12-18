@@ -6,27 +6,9 @@ require 'aside.php';
 $db = new DbConnection($_SESSION['isDev']);
 $user = new User();
 $result = $user -> get_user_row($_SESSION['user_id'], $db);
-var_dump($result);
 
 ?>
 <main>
-    <script>
-
-    var static = document.getElementById('static');
-    var editable = document.getElementById('editable');
-
-    function setEditable(){
-        editable.style.display="inline-block";
-        static.style.display="none";
-    }
-
-    function setStatic(){
-        editable.style.display="none";
-        static.style.display="inline-block";
-    }
-
-
-    </script>
 
         <form onload="setStatic()" id="static" action="">
 
@@ -68,9 +50,30 @@ var_dump($result);
 
 </main>
 
+
+    <script>
+        var st, ed;
+
+
+        st = document.getElementById('static');
+        ed = document.getElementById('editable');
+
+        function setEditable() {
+            ed.style.display = "inline-block";
+            st.style.display = "none";
+        }
+
+        function setStatic() {
+            ed.style.display = "none";
+            st.style.display = "inline-block";
+        }
+
+        setStatic();
+    </script>
+
 <?php
 
-var_dump($_POST);
+//var_dump($_POST);
 
  require 'footer.php';
 ?>
