@@ -112,6 +112,7 @@ class Image {
     	";
     	
     	$result = mysqli_query($db -> connection, $query);
+        //var_dump(mysqli_error($db));
     	
     	return $result;
     }
