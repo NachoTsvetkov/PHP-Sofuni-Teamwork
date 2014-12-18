@@ -227,8 +227,10 @@ footer>section {
 }
 
 footer iframe {
-    float:right;
-    vertical-align: top;
+    float: right;
+    clear: right;
+    margin-top: -59px;
+    /* vertical-align: top; */
 }
 
 .fb-like{
