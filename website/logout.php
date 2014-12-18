@@ -4,8 +4,7 @@ if (session_status() == PHP_SESSION_NONE) {
     }
 session_destroy();
 
-echo "
-	<script type='text/javascript'>
+echo "<script type='text/javascript'>
 		window.location = '/index';
 	</script>
 	";

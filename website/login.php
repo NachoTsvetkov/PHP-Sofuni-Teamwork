@@ -30,13 +30,9 @@ if (isset($_POST['loginSubmit'])) {
     if (!$result) {
         $_SESSION['errorMsg'] = "Incorrect email or password!";
 
-        echo "
-		<script type='text/javascript'>
+        echo "<script type='text/javascript'>
 		window.location = '/error';
-
-		</script>
-		";
-
+		</script>";
 
     } else{
     	$_SESSION['user_name'] = $result['user_name'];
@@ -44,11 +40,9 @@ if (isset($_POST['loginSubmit'])) {
     	$_SESSION['user_image'] = $result['user_image'];
 		$_SESSION['user_role'] = $result['user_role'];
 
-        echo "
-		<script type='text/javascript'>
-			window.location.href = window.location.href + '/index';
-		</script>
-		";
+        echo "<script type='text/javascript'>
+			window.location = '/index';
+		</script>";
 
     } 
     session_write_close();

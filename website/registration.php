@@ -6,8 +6,8 @@
 			<input type="email" class="form-control" id="email" name="email" required>
 		</div>
 		<div class="form-group">
-			<label for="firstName" class="control-label">First Name</label>
-			<input type="text" class="form-control" id="firstName" name="firstName" required>
+			<label for="username" class="control-label">First Name</label>
+			<input type="text" class="form-control" id="username" name="username" required>
 		</div>
 		<div class="form-group">
 			<label for="password" class="control-label">Password</label>
@@ -32,11 +32,22 @@ if (isset($_POST['registerSubmit'])) {
 
 	$check = $user -> check_user($_POST['email'], $db);
 
-	if ($user) {
+	if ($check) {
 		$_SESSION['errorMsg'] = "User with that email already exists!";
-		header("Location: 'error.php'");
-	}else{
-		header("Location: 'index.php'");
+		echo "<script type='text/javascript'>
+			window.location = '/error';
+		</script>";
+	} else {
+		$user_name = $_POST['username'];
+		$user_email = $_POST['email'];
+		$user_password = $_POST['password'];
+
+		$user -> add_user($user_name, $user_password, $user_email, null, $db);
+
+		echo "<script type='text/javascript'>
+			window.location = '/index';
+		</script>";
+
 	}
 
 }
