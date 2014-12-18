@@ -15,7 +15,7 @@
         foreach ($categories as $key => $value) {
             $category_id = $value['category_id'];
             $category_name = $value['category_name'];
-            echo "<li><a href='category.php?$category_id'>$category_name</a></li>";
+            echo "<li><a href='category_list?$category_id'>$category_name</a></li>";
         }
 
         ?>

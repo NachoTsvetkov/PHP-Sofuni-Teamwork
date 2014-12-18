@@ -52,5 +52,8 @@ handlers:
 - url: .*/set_comment
   script: website/set_comment.php
 
+- url: .*/category_list
+  script: website/category_list.php
+
 - url: /.*
   script: website/index.php
