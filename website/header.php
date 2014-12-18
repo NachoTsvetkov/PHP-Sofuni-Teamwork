@@ -2,11 +2,12 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>PICasso</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/lightbox.css"/>
     <link rel="stylesheet" href="css/theme.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="shortcut icon" href="img/logo.png">
     
 </head>
 <body>
