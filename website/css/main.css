@@ -292,13 +292,20 @@ input{
 /* user page */
 #profilePicStatic{
     margin-left: 0;
-    margin-top: 5%;
+    margin-top: 6.1%;
     display: inline-block;
 }
 #profilePicEditable{
-    position: relative;
     display: inline-block;
-    top: -24px;
+    width: 33%;
+}
+#editable{
+    margin-top: 2%;
+}
+#profileInfoEditable {
+    display: inline-block;
+    top: 13px;
+    width: 33%;
 }
 #profilePicEditable a img,#profilePicStatic a img{
     width:200px;
@@ -313,11 +320,11 @@ input[type="submit"]:disabled,input[type="file"]:disabled{
     opacity: 0;
 }
 
-#profileInfoEditable{
-    
-position: relative;
-display: inline-block;
-top: -30px;
+#profileInfoEditable {
+    position: relative;
+    display: inline-block;
+    top: 13px;
+    left: -69px;
 }
 #profileInfoStatic{
     width: 25%;
