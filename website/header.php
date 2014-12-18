@@ -38,7 +38,7 @@
                     <a href="add_img" class="btn btn-info">Upload</a>
                 </li>
                 <li>
-                    <a href="user" class="btn btn-info">Profile</a>
+                    <a href="user" class="btn btn-primary">Profile</a>
                 </li>
                 <li>
                      <a href="index" class="btn btn-primary">Logout</a>
