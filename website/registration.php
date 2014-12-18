@@ -1,3 +1,4 @@
+
 <form role="form" method="post" name="register" id="register" class="form-horizontal">
 	<fieldset>
         <legend>Register</legend>
@@ -6,7 +7,7 @@
 			<input type="email" class="form-control" id="email" name="email" required>
 		</div>
 		<div class="form-group">
-			<label for="username" class="control-label">First Name</label>
+			<label for="username" class="control-label">Name</label>
 			<input type="text" class="form-control" id="username" name="username" required>
 		</div>
 		<div class="form-group">
@@ -34,9 +35,11 @@ if (isset($_POST['registerSubmit'])) {
 
 	if ($check) {
 		$_SESSION['errorMsg'] = "User with that email already exists!";
+
 		echo "<script type='text/javascript'>
 			window.location = '/error';
 		</script>";
+
 	} else {
 		$user_name = $_POST['username'];
 		$user_email = $_POST['email'];
@@ -47,7 +50,5 @@ if (isset($_POST['registerSubmit'])) {
 		echo "<script type='text/javascript'>
 			window.location = '/index';
 		</script>";
-
 	}
-
 }

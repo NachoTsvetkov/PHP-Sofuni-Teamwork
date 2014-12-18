@@ -13,8 +13,7 @@ require 'aside.php';
 
 <main>
 	
- 	<h2><?php $_SESSION['errorMsg'] ?></h2>
- 	<?= $_SESSION['errorMsg'] = '' ?>
+ 	<h2><?php echo $_SESSION['errorMsg'] ?></h2>
 
 </main>
 

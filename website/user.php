@@ -1,5 +1,8 @@
-<?php  require 'header.php';
+<?php  
+
+require 'header.php';
 require 'aside.php';
+
 ?>
 <main>
     <script>
