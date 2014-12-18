@@ -12,7 +12,12 @@ if (session_status() == PHP_SESSION_NONE) {
 $_SESSION['isDev'] = true;
 session_write_close();
 
-// $db = new DbConnection($_SESSION['isDev']);
+ //$db = new DbConnection($_SESSION['isDev']);
+ //$category = new Category();
+ 
+ //$result = $category -> get_category_images(1, $db);
+ //var_dump($result);
+ 
 // $image = new Image();
 
 

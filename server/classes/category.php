@@ -108,16 +108,22 @@ class Category
         }
 
         $query = "
-            SELECT i.image_id
+            SELECT i.image_id, i.image_data, i.image_format, i.image_title
             FROM images i INNER JOIN category_rel cr ON i.image_id = cr.image_id
             WHERE (i.active = 1) AND (cr.active = 1) AND (cr.category_id = $category_id);
-            ";
+        ";
         
         $result = mysqli_query($db -> connection, $query);
         
         $output = array();
+        
         while ($row = $result -> fetch_assoc()) {
-            $tag = '<img src="data:image/png/jpg/jpeg/gif;base64,'.base64_encode($row[0]).'" alt="photo" width="500px"><br>';
+            $tag = [
+                '<img src="data:image/' . $row['image_format'] . ';base64,'.base64_encode($row['image_data']).'" alt="photo" width="500px" id="img_' . $row['image_id'] . '">', 
+                'data:image/' . $row['image_format'] . ';base64,'.base64_encode($row['image_data']),
+                'download'. $row['image_format'],
+                $row['image_title']
+            ];
             array_push($output, $tag);
         }
         
@@ -129,23 +135,30 @@ class Category
             echo mysqli_error();
             die();
         }
-
+        
         $query = "
-            IF EXISTS (SELECT 1 FROM category_rel WHERE category_id = '$category_id' AND image_id = '$image_id')
-            BEGIN
-                UPDATE category_rel
-                SET active = 1
-                WHERE category_id = '$category_id' AND image_id = '$image_id';
-            END
-            ELSE
-                INSERT INTO category_rel (category_id, image_id, active) 
-                VALUES('$category_id', '$image_id', 1);
-            END
+            SELECT category_id 
+            FROM category_rel 
+            WHERE category_id = '$category_id' AND image_id = '$image_id'
         ";
         
         $result = mysqli_query($db -> connection, $query);
         
+        if ($row = $result -> fetch_assoc()) {
+            $query = "
+                UPDATE category_rel
+                SET active = 1
+                WHERE category_id = '$category_id' AND image_id = '$image_id';
+            ";
+        } else {
+            $query = "
+                INSERT INTO category_rel (category_id, image_id, active) 
+                VALUES('$category_id', '$image_id', 1);
+            ";
+        }
         
+        $result = mysqli_query($db -> connection, $query);
+
         return $result;
     }
     
@@ -199,10 +212,12 @@ class Category
             FROM images i INNER JOIN cat_al_rel car ON i.image_id = car.image_id
             WHERE (i.active = 1) AND (cr.active = 1) AND (cr.category_id = $category_id);
             
-            SELECT album_id
-            FROM cat_al_rel 
-            WHERE (active = 1) AND (category_id = '$category_id');
             ";
+        
+        
+        //SELECT album_id
+        //FROM cat_al_rel 
+        //WHERE (active = 1) AND (category_id = '$category_id');
         
         $result = mysqli_query($db -> connection, $query);
         
