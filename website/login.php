@@ -21,7 +21,7 @@ if (isset($_POST['loginSubmit'])) {
     $user = new User();
     $db = new DbConnection($_SESSION['isDev']);
 
-    $result = $user -> get_user(mysqli_real_escape_string($_POST['loginEmail']), mysqli_real_escape_string($_POST['loginPassword']), $db);
+    $result = $user -> get_user(mysqli_real_escape_string($db -> connection, $_POST['loginEmail']), mysqli_real_escape_string($db -> connection, $_POST['loginPassword']), $db);
 
     if (session_status() == PHP_SESSION_NONE) {
         @session_start();

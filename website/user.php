@@ -26,7 +26,15 @@ $upload_url = CloudStorageTools::createUploadUrl('/upload_handler_user', $option
         <form id="static" action="">
 
             <figure id="profilePicStatic">
-                <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
+                <a href="#">
+                    <?php 
+                        $output = '<img src="img/default-medium-profile.png" />';
+                        if ($result['user_image']) {
+                            $output = $result['user_image_tag'][0];
+                        }
+                        echo $output; 
+                    ?>
+                </a>
             </figure>
             <div id="profileInfoStatic">
             <label for="">Email:</label>
@@ -42,7 +50,15 @@ $upload_url = CloudStorageTools::createUploadUrl('/upload_handler_user', $option
        <form id="editable" action="<?php echo $upload_url?>" enctype="multipart/form-data"  method="post" >
 
             <figure id="profilePicEditable">
-                <a href="#"><?php echo $result['user_image_tag'][0]; ?></a>
+                <a href="#">
+                    <?php 
+                        $output = '<img src="img/default-medium-profile.png" />';
+                        if ($result['user_image']) {
+                            $output = $result['user_image_tag'][0];
+                        }
+                        echo $output; 
+                    ?>
+                </a>
             </figure>
             <div id="profileInfoEditable">
             <label for="">Email:</label>

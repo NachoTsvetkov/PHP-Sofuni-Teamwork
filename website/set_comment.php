@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $db = new DbConnection($_SESSION['isDev']);
 $image = new Image();
-$result = $image -> comment ($_POST['id'], $_SESSION['user_id'], mysqli_real_escape_string($_POST['content']), $db);
+$result = $image -> comment ($_POST['id'], $_SESSION['user_id'], mysqli_real_escape_string($db -> connection, $_POST['content']), $db);
 
 session_write_close();
 
