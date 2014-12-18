@@ -12,7 +12,7 @@ if (session_status() == PHP_SESSION_NONE) {
 $_SESSION['isDev'] = true;
 session_write_close();
 
-//$db = new DbConnection($_SESSION['isDev']);
+$db = new DbConnection($_SESSION['isDev']);
 //$category = new Category();
 
 //$category -> add_category('best', $db);

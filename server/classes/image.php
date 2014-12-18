@@ -89,7 +89,7 @@ class Image {
         $output = array();
         while ($row = $result -> fetch_assoc()) {
             $tag = [
-                '<img src="data:image/' . $row['image_format'] . ';base64,'.base64_encode($row['image_data']).'" alt="photo" width="500px"><br>', 
+                '<img src="data:image/' . $row['image_format'] . ';base64,'.base64_encode($row['image_data']).'" alt="photo" width="500px" id="img_' . $row['image_id'] . '">', 
                 'data:image/' . $row['image_format'] . ';base64,'.base64_encode($row['image_data']),
                 'download'. $row['image_format'],
                 $row['image_title']
@@ -152,6 +152,30 @@ class Image {
         }
         
         return $output;
+    }
+    
+    public function like ($image_id, $user_id, $db) {
+        if (!mysqli_select_db($db -> connection, "photos_db")) {
+            echo mysqli_error();
+            die();
+        }
+
+        $query = "
+            IF EXISTS (SELECT 1 FROM likes WHERE image_id = '$image_id' AND user_id = '$user_id')
+            BEGIN
+                UPDATE likes
+                SET active = 1
+                WHERE image_id = '$image_id' AND user_id = '$user_id';
+            END
+            ELSE
+                INSERT INTO likes (image_id, user_id, active) 
+                VALUES('$image_id', '$user_id', 1);
+            END
+        ";
+        
+        $result = mysqli_query($db -> connection, $query);
+        
+        return $result;
     }
 }
 ?>
