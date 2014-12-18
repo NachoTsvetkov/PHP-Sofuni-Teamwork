@@ -1,6 +1,7 @@
 <?php
 class Like
 {
+    //ME LIKE
     public $table_name = 'likes';
     
     public function __construct(){}
