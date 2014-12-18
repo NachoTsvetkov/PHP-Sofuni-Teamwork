@@ -155,8 +155,9 @@ section {
 }
 
 main section.grid article {
-    width: 130px;
     float: left;
+    max-width: 175px;
+    max-height: 124px;
     border: 1px solid lightgray;
     margin: 0 6px 10px 0;
     margin-top: 3px;
