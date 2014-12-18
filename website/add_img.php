@@ -7,23 +7,21 @@ require 'aside.php';
 require_once 'google/appengine/api/cloud_storage/CloudStorageTools.php';
 use google\appengine\api\cloud_storage\CloudStorageTools;
 
-$options = [ 'gs_bucket_name' => 'my_bucket' ];
-$upload_url = CloudStorageTools::createUploadUrl('/upload_handler.php', $options);
+$options = [ 'gs_bucket_name' => 'php-teamwork-softuni' ];
+$upload_url = CloudStorageTools::createUploadUrl('/upload_handler', $options);
+var_dump($upload_url);
 
 ?>
 
-<main>
-     <form action="add_img" method="POST" enctype="multipart/form-data">
-     	File:
-    	<input type="file" name="image"/>
-        <input type="submit" value="Upload"/>
-    </form>
- </main>
+<form action="<?php echo $upload_url?>" enctype="multipart/form-data" method="post">
+    Files to upload: <br>
+   <input type="file" name="uploaded_files" size="40">
+   <input type="submit" value="Send">
+</form>
 
 <?php
 
-var_dump($_POST['image']);
-
 require 'footer.php';
+
 ?>
 

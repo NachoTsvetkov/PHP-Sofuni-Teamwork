@@ -15,8 +15,19 @@ handlers:
 - url: .*/script
   static_dir: website/script
 
-#- url: .*/server/config.php
-#  script: website/server/config.php
+# #- url: .*/server/config.php
+# #  script: website/server/config.php
+# - url: /(.+\.(gif|png|jpg))$
+#   static_files: \1
+#   upload: .+\.(gif|png|jpg)$
+#   application_readable: true
+
+# # Serve php scripts.
+# - url: /(.+\.php)$
+#   script: \1
+- url: .*/upload_handler
+  script: website/upload_handler.php
+
 - url: .*/error
   script: website/error.php
 

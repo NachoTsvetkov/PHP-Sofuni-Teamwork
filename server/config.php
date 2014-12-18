@@ -9,11 +9,11 @@ if (session_status() == PHP_SESSION_NONE) {
     @session_start();
 }
 
-$_SESSION['isDev'] = true;
+$_SESSION['isDev'] = false;
 session_write_close();
 
-$db = new DbConnection($_SESSION['isDev']);
-$image = new Image();
+// $db = new DbConnection($_SESSION['isDev']);
+// $image = new Image();
 
 
 //$result = $image -> get_image_comments (3, $db);
